@@ -6,3 +6,4 @@ __pycache__/
 outputs/
 *.db
 data/raw/
+data/chunks.json
