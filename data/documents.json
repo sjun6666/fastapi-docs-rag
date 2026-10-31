@@ -1,0 +1,30 @@
+[
+  {
+    "id": "D001",
+    "title": "URL查询参数",
+    "keywords": ["params", "查询参数"],
+    "text": "Requests使用params传入URL查询参数，例如字典中的键值会编码到URL查询部分。",
+    "source": "https://requests.readthedocs.io/en/latest/user/quickstart/#passing-parameters-in-urls"
+  },
+  {
+    "id": "D002",
+    "title": "网络超时",
+    "keywords": ["timeout", "超时"],
+    "text": "timeout控制网络等待，不是主动延迟，也不是整个下载总耗时的绝对上限。超时可引发Timeout异常。",
+    "source": "https://requests.readthedocs.io/en/latest/user/quickstart/#timeouts"
+  },
+  {
+    "id": "D003",
+    "title": "响应JSON解析",
+    "keywords": ["response.json", "解析"],
+    "text": "response.json()把响应JSON解析为Python对象。解析成功不保证HTTP成功，也不会自动写本地文件。",
+    "source": "https://requests.readthedocs.io/en/latest/user/quickstart/#json-response-content"
+  },
+  {
+    "id": "D004",
+    "title": "HTTP状态检查",
+    "keywords": ["raise_for_status", "404", "状态码"],
+    "text": "raise_for_status()在HTTP错误状态下抛出HTTPError。检查HTTP状态和检查业务内容是不同步骤。",
+    "source": "https://requests.readthedocs.io/en/latest/user/quickstart/#response-status-codes"
+  }
+]

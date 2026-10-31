@@ -1,0 +1,8 @@
+[
+  {"query": "timeout是什么意思？", "expected_ids": ["D002"]},
+  {"query": "response.json会保存文件吗？", "expected_ids": ["D003"]},
+  {"query": "404状态码如何检查？", "expected_ids": ["D004"]},
+  {"query": "params怎么传查询参数？", "expected_ids": ["D001"]},
+  {"query": "params和timeout分别做什么？", "expected_ids": ["D001", "D002"]},
+  {"query": "北京今天的天气如何？", "expected_ids": []}
+]
