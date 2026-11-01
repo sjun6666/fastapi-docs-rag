@@ -1,0 +1,10 @@
+[
+  {"question": "怎么声明路径参数", "expected_doc": "tutorial/path-params.md", "type": "原词"},
+  {"question": "URL 里的变量怎么获取", "expected_doc": "tutorial/path-params.md", "type": "换说法"},
+  {"question": "网址问号后面的参数怎么读取", "expected_doc": "tutorial/query-params.md", "type": "换说法"},
+  {"question": "怎么用 Pydantic 模型接收请求体", "expected_doc": "tutorial/body.md", "type": "原词"},
+  {"question": "前端调用接口被浏览器拦截了怎么办", "expected_doc": "tutorial/cors.md", "type": "换说法"},
+  {"question": "怎么创建虚拟环境", "expected_doc": "virtual-environments.md", "type": "原词"},
+  {"question": "什么时候用 async def，什么时候用普通 def", "expected_doc": "async.md", "type": "原词"},
+  {"question": "找不到数据时怎么给客户端返回错误", "expected_doc": "tutorial/handling-errors.md", "type": "换说法"}
+]

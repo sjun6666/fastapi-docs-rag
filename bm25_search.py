@@ -39,12 +39,31 @@ def search(query, k=5):
     # 5. 返回这 k 个文本块，并附上分数
     results = []
     for i in top_ids:
-        results.append({"chunk_id":chunks[i]["chunk_id"] , "score": scores[i], "text":chunks[i]["text"]})
+        results.append({"chunk_id":chunks[i]["chunk_id"] , "doc_id": chunks[i]["doc_id"],"score": scores[i], "text":chunks[i]["text"]})
     return results
 
 
 if __name__ == '__main__':
-    result = search("怎么声明路径参数")
-    for chunk in result:
-        score = round(chunk["score"],2)
-        print("chunk_id:", chunk["chunk_id"], "score:", score, "text:", chunk["text"][:80],)
+    data = load_data("data/chunks.json")
+
+    test = load_data("data/eval_questions.json")
+    results = []
+    originally_count = 0
+    change_count = 0
+    for q in test:
+        result=search(q["question"])
+        if any(r["doc_id"] == q["expected_doc"]for r in result):
+            print("命中成功","类型是",q["type"],"问题",q["question"])
+            if q["type"] =="原词":
+                originally_count +=1
+            elif q["type"] =="换说法":
+                change_count +=1
+        else:
+            print("没命中的题目",q["question"])
+
+    print("总命中数",originally_count+change_count,"原词命中数",originally_count,"换说法命中数",change_count)
+
+
+
+
+
