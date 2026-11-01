@@ -7,3 +7,4 @@ outputs/
 *.db
 data/raw/
 data/chunks.json
+.env
