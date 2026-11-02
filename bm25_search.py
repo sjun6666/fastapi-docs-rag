@@ -18,18 +18,7 @@ def tokenize(text):
 
 
     return result_no_blank
-def search(query, k=5):
-    chunks = load_data("data/chunks.json")
-
-    # 1. 整理书库：每个文本块的正文分词
-    tokenized_corpus = []
-    for chunk in chunks:
-        tokenized_corpus.append(tokenize(chunk["text"]))
-
-    # 2. 建索引（循环结束后，只建一次）
-    bm25 = BM25Okapi(tokenized_corpus)
-
-    # 3. 问题分词，打分
+def search(query,bm25,chunks,k=5):
     query_tokens = tokenize(query)
     scores = bm25.get_scores(query_tokens)
 
@@ -41,7 +30,12 @@ def search(query, k=5):
     for i in top_ids:
         results.append({"chunk_id":chunks[i]["chunk_id"] , "doc_id": chunks[i]["doc_id"],"score": scores[i], "text":chunks[i]["text"]})
     return results
-
+def build_index(chunks):
+    tokenized_corpus = []
+    for chunk in chunks:
+        tokenized_corpus.append(tokenize(chunk["text"]))
+    bm25 = BM25Okapi(tokenized_corpus)
+    return bm25
 
 if __name__ == '__main__':
     data = load_data("data/chunks.json")
