@@ -1,0 +1,230 @@
+[
+  {
+    "question": "FastAPI 默认对 JSON 请求体使用严格的 Content-Type 头检查吗？它要求请求包含什么样的 Content-Type 才会按 JSON 解析？",
+    "expected_doc": "advanced/strict-content-type.md",
+    "type": "原词",
+    "source_chunk": "advanced/strict-content-type.md#0"
+  },
+  {
+    "question": "我向服务提交一段数据时，是不是必须带一个标明数据格式的头部，否则它不会被当作结构化数据来处理？",
+    "expected_doc": "advanced/strict-content-type.md",
+    "type": "换说法",
+    "source_chunk": "advanced/strict-content-type.md#0"
+  },
+  {
+    "question": "如何查看 FastAPI 应用在当前请求中使用的 `root_path`？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "原词",
+    "source_chunk": "advanced/behind-a-proxy.md#11"
+  },
+  {
+    "question": "怎样知道应用每次收到请求时正在使用的基础路径？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "换说法",
+    "source_chunk": "advanced/behind-a-proxy.md#11"
+  },
+  {
+    "question": "使用 uv 将 FastAPI 添加到项目时，命令应该怎么写？",
+    "expected_doc": "index.md",
+    "type": "原词",
+    "source_chunk": "index.md#22"
+  },
+  {
+    "question": "我想通过命令行把这个 Python 框架装进项目里，终端里输入什么命令比较稳妥？",
+    "expected_doc": "index.md",
+    "type": "换说法",
+    "source_chunk": "index.md#22"
+  },
+  {
+    "question": "如何用自定义的 Request 子类来解压 gzip 请求，并通过 APIRoute 子类使用该自定义请求类？",
+    "expected_doc": "how-to/custom-request-and-route.md",
+    "type": "原词",
+    "source_chunk": "how-to/custom-request-and-route.md#1"
+  },
+  {
+    "question": "怎样让同一个处理接口既能处理压缩过的请求内容，也能处理没有压缩的普通内容？",
+    "expected_doc": "how-to/custom-request-and-route.md",
+    "type": "换说法",
+    "source_chunk": "how-to/custom-request-and-route.md#1"
+  },
+  {
+    "question": "文档里 `**second_user_data` 是什么意思？",
+    "expected_doc": "features.md",
+    "type": "原词",
+    "source_chunk": "features.md#3"
+  },
+  {
+    "question": "创建一个对象时，如果手上是一组包含字段和值的数据，前面加两个星号会怎样传给创建过程？",
+    "expected_doc": "features.md",
+    "type": "换说法",
+    "source_chunk": "features.md#3"
+  },
+  {
+    "question": "FastAPI 用 Pydantic 来处理哪些事情？",
+    "expected_doc": "alternatives.md",
+    "type": "原词",
+    "source_chunk": "alternatives.md#23"
+  },
+  {
+    "question": "这个框架靠某个依赖完成了哪些数据检查、转换和自动说明方面的工作？",
+    "expected_doc": "alternatives.md",
+    "type": "换说法",
+    "source_chunk": "alternatives.md#23"
+  },
+  {
+    "question": "在某些情况下，为什么从依赖项中提供设置可能更有用？",
+    "expected_doc": "advanced/settings.md",
+    "type": "原词",
+    "source_chunk": "advanced/settings.md#7"
+  },
+  {
+    "question": "如果不想在所有地方都共用同一个配置对象，有没有更灵活的做法？这种做法在验证程序时有什么方便之处？",
+    "expected_doc": "advanced/settings.md",
+    "type": "换说法",
+    "source_chunk": "advanced/settings.md#7"
+  },
+  {
+    "question": "什么是时差攻击？使用 secrets.compare_digest() 可以防御它吗？",
+    "expected_doc": "advanced/security/http-basic-auth.md",
+    "type": "原词",
+    "source_chunk": "advanced/security/http-basic-auth.md#3"
+  },
+  {
+    "question": "为什么登录校验时，如果一发现用户名或密码不对就马上停止比较，可能让坏人更容易猜出账号和密码？",
+    "expected_doc": "advanced/security/http-basic-auth.md",
+    "type": "换说法",
+    "source_chunk": "advanced/security/http-basic-auth.md#3"
+  },
+  {
+    "question": "如何通过 tags 参数为路径操作添加标签？",
+    "expected_doc": "tutorial/path-operation-configuration.md",
+    "type": "原词",
+    "source_chunk": "tutorial/path-operation-configuration.md#1"
+  },
+  {
+    "question": "怎样给某个功能加上分类标记，让自动生成的说明里显示出来？",
+    "expected_doc": "tutorial/path-operation-configuration.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/path-operation-configuration.md#1"
+  },
+  {
+    "question": "如果没有指定 `servers` 参数，并且 `root_path` 等于 “/”，生成的 OpenAPI 模式中 `servers` 属性会怎样？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "原词",
+    "source_chunk": "advanced/behind-a-proxy.md#25"
+  },
+  {
+    "question": "如果我没有额外填写访问地址，而且项目就处在最外层的默认路径，自动生成的接口文档里还会列出地址信息吗？这相当于默认只有一个什么地址？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "换说法",
+    "source_chunk": "advanced/behind-a-proxy.md#25"
+  },
+  {
+    "question": "为什么直接由 Uvicorn 提供的 /docs 无法工作，而通过代理访问 /api/v1/docs 就能正常工作？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "原词",
+    "source_chunk": "advanced/behind-a-proxy.md#21"
+  },
+  {
+    "question": "为什么我直接打开本机 8000 端口的文档页面打不开，但通过中间转发服务访问带前缀的地址时却能正常显示？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "换说法",
+    "source_chunk": "advanced/behind-a-proxy.md#21"
+  },
+  {
+    "question": "SecurityScopes 对象的 scopes 属性包含哪些作用域？",
+    "expected_doc": "advanced/security/oauth2-scopes.md",
+    "type": "原词",
+    "source_chunk": "advanced/security/oauth2-scopes.md#8"
+  },
+  {
+    "question": "拿到那个安全范围对象后，它里面那个列表会把哪些范围都收进去？",
+    "expected_doc": "advanced/security/oauth2-scopes.md",
+    "type": "换说法",
+    "source_chunk": "advanced/security/oauth2-scopes.md#8"
+  },
+  {
+    "question": "FastAPI 的自动补全、类型提示与错误检查等支持，能在哪些编辑器上体现？",
+    "expected_doc": "history-design-future.md",
+    "type": "原词",
+    "source_chunk": "history-design-future.md#3"
+  },
+  {
+    "question": "为什么使用不同的写代码软件时，大多也能获得输入联想、类型说明和出错提醒等帮助？",
+    "expected_doc": "history-design-future.md",
+    "type": "换说法",
+    "source_chunk": "history-design-future.md#3"
+  },
+  {
+    "question": "返回 Token 的端点响应必须是什么格式？响应中应包含哪些字段，token_type 的值应该是什么？",
+    "expected_doc": "tutorial/security/simple-oauth2.md",
+    "type": "原词",
+    "source_chunk": "tutorial/security/simple-oauth2.md#8"
+  },
+  {
+    "question": "用户登录成功后，服务端返回的数据应该是什么格式？里面要放哪些内容，其中表示类型的那一项应该写什么？",
+    "expected_doc": "tutorial/security/simple-oauth2.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/security/simple-oauth2.md#8"
+  },
+  {
+    "question": "代理移除路径前缀是什么意思？默认情况下代理会移除路径前缀吗？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "原词",
+    "source_chunk": "advanced/behind-a-proxy.md#14"
+  },
+  {
+    "question": "如果外面访问 https://myawesomeapp.com/api/v1/app，而中间转发层不把 /api/v1 去掉，后面监听 127.0.0.1:8000 的服务实际会收到什么地址？",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "type": "换说法",
+    "source_chunk": "advanced/behind-a-proxy.md#14"
+  },
+  {
+    "question": "Uvicorn 运行在 http://0.0.0.0:8000 时，提示按什么退出？",
+    "expected_doc": "deployment/manually.md",
+    "type": "原词",
+    "source_chunk": "deployment/manually.md#5"
+  },
+  {
+    "question": "启动完成后如果想停止服务，应该按哪个组合键？",
+    "expected_doc": "deployment/manually.md",
+    "type": "换说法",
+    "source_chunk": "deployment/manually.md#5"
+  },
+  {
+    "question": "如果希望浏览器中的客户端可见自定义请求头，需要把它们加到 CORS 配置的哪个参数中？",
+    "expected_doc": "tutorial/middleware.md",
+    "type": "原词",
+    "source_chunk": "tutorial/middleware.md#2"
+  },
+  {
+    "question": "前端网页想读取后端返回的自定义响应头，跨域设置里要配置哪个选项？",
+    "expected_doc": "tutorial/middleware.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/middleware.md#2"
+  },
+  {
+    "question": "为什么推荐在 `pyproject.toml` 中使用 `entrypoint`？",
+    "expected_doc": "fastapi-cli.md",
+    "type": "原词",
+    "source_chunk": "fastapi-cli.md#10"
+  },
+  {
+    "question": "为什么最好把应用位置写进项目配置文件，而不是每次运行命令都手动指定？",
+    "expected_doc": "fastapi-cli.md",
+    "type": "换说法",
+    "source_chunk": "fastapi-cli.md#10"
+  },
+  {
+    "question": "除了 `pattern`，还可以使用什么来进行自定义校验？",
+    "expected_doc": "tutorial/query-params-str-validations.md",
+    "type": "原词",
+    "source_chunk": "tutorial/query-params-str-validations.md#24"
+  },
+  {
+    "question": "如果不想只靠固定格式匹配，还想自己写规则检查输入，文档说可以借助哪个工具？",
+    "expected_doc": "tutorial/query-params-str-validations.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/query-params-str-validations.md#24"
+  }
+]
