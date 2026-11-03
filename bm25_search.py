@@ -36,26 +36,38 @@ def build_index(chunks):
         tokenized_corpus.append(tokenize(chunk["text"]))
     bm25 = BM25Okapi(tokenized_corpus)
     return bm25
+def build_overlap_index(chunks):
+    overlap_list = []
+    for chunk in chunks:
+        overlap_list.append(set(tokenize(chunk["text"])))
+    return overlap_list
+def overlap_search(query, index, chunks, k=5):
+    query_tokens = tokenize(query)
+
+    scores=[]
+    for t in index:
+        count = 0
+        for q in query_tokens:
+            if q in t:
+                count+=1
+        scores.append(count)
+
+    top_ids = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:k]
+    results = []
+    for i in top_ids:
+        results.append({"chunk_id":chunks[i]["chunk_id"] , "doc_id": chunks[i]["doc_id"],"score": scores[i], "text":chunks[i]["text"]})
+    return results
+
 
 if __name__ == '__main__':
-    data = load_data("data/chunks.json")
-
+    chunks = load_data("data/chunks.json")
     test = load_data("data/eval_questions.json")
-    results = []
-    originally_count = 0
-    change_count = 0
-    for q in test:
-        result=search(q["question"])
-        if any(r["doc_id"] == q["expected_doc"]for r in result):
-            print("命中成功","类型是",q["type"],"问题",q["question"])
-            if q["type"] =="原词":
-                originally_count +=1
-            elif q["type"] =="换说法":
-                change_count +=1
-        else:
-            print("没命中的题目",q["question"])
+    query="怎么声明路径参数"
+    index = build_overlap_index(chunks)
+    results = overlap_search(query, index, chunks)
+    for r in results:
+        print(r["chunk_id"], r["score"])
 
-    print("总命中数",originally_count+change_count,"原词命中数",originally_count,"换说法命中数",change_count)
 
 
 
