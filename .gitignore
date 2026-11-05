@@ -8,3 +8,4 @@ outputs/
 data/raw/
 data/chunks.json
 .env
+data/chunk_vectors.npy
