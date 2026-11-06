@@ -1,0 +1,278 @@
+[
+  {
+    "question": "FastAPI 中使用 `commons: CommonQueryParams = Depends()` 时，为什么 `Depends()` 中不需要再写 `CommonQueryParams`？",
+    "expected_doc": "tutorial/dependencies/classes-as-dependencies.md",
+    "type": "原词",
+    "source_chunk": "tutorial/dependencies/classes-as-dependencies.md#10"
+  },
+  {
+    "question": "写接口时，怎么让系统根据我标出来的那个东西自动传进来，而不用在括号里再重复写一遍？",
+    "expected_doc": "tutorial/dependencies/classes-as-dependencies.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/dependencies/classes-as-dependencies.md#10"
+  },
+  {
+    "question": "如何通过 `openapi_tags` 为用于分组路径操作的不同标签添加额外元数据？",
+    "expected_doc": "tutorial/metadata.md",
+    "type": "原词",
+    "source_chunk": "tutorial/metadata.md#5"
+  },
+  {
+    "question": "怎样给接口分类名称补充说明和外部文档链接？",
+    "expected_doc": "tutorial/metadata.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/metadata.md#5"
+  },
+  {
+    "question": "为什么文档建议避免使用 `Optional[SomeType]`，改用 `Union[SomeType, None]`？",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "type": "原词",
+    "source_chunk": "advanced/advanced-python-types.md#1"
+  },
+  {
+    "question": "在类型标注里表示某个值也可能是空值时，作者为什么更推荐另一种写法，而不是名字容易让人以为可以不传参的那种？",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "type": "换说法",
+    "source_chunk": "advanced/advanced-python-types.md#1"
+  },
+  {
+    "question": "如何将 FastAPI 应用部署到我选择的任意云服务商？",
+    "expected_doc": "deployment/fastapicloud.md",
+    "type": "原词",
+    "source_chunk": "deployment/fastapicloud.md#2"
+  },
+  {
+    "question": "我选好一个服务平台后，该怎么把自己做好的应用放上去？",
+    "expected_doc": "deployment/fastapicloud.md",
+    "type": "换说法",
+    "source_chunk": "deployment/fastapicloud.md#2"
+  },
+  {
+    "question": "如何在 requirements.txt 中把 FastAPI 固定为 0.112.0？",
+    "expected_doc": "deployment/versions.md",
+    "type": "原词",
+    "source_chunk": "deployment/versions.md#1"
+  },
+  {
+    "question": "我该怎样在依赖文件里让项目只使用示例中的那个具体版本，而不会装到更高版本？",
+    "expected_doc": "deployment/versions.md",
+    "type": "换说法",
+    "source_chunk": "deployment/versions.md#1"
+  },
+  {
+    "question": "创建 `OAuth2PasswordBearer` 实例时，必须传入的 `tokenUrl` 参数有什么作用？",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "type": "原词",
+    "source_chunk": "tutorial/security/first-steps.md#6"
+  },
+  {
+    "question": "前端登录时，应该把账号和口令发到哪个地址来换取访问凭证？这个地址在 FastAPI 里怎么设置？",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/security/first-steps.md#6"
+  },
+  {
+    "question": "使用 `response_model` 参数的主要作用是什么？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "原词",
+    "source_chunk": "tutorial/response-model.md#20"
+  },
+  {
+    "question": "怎样避免把内部信息暴露在接口的返回结果里？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/response-model.md#20"
+  },
+  {
+    "question": "当服务器已经用完 100% 的 CPU 和 RAM 时，继续硬撑可能会导致什么问题？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "原词",
+    "source_chunk": "deployment/concepts.md#18"
+  },
+  {
+    "question": "如果机器已经忙到没有一点余量，还继续硬扛着会带来哪些风险？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "换说法",
+    "source_chunk": "deployment/concepts.md#18"
+  },
+  {
+    "question": "`openapi_extra` 中的字典会如何与路径操作自动生成的 OpenAPI 方案进行合并？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "原词",
+    "source_chunk": "advanced/path-operation-advanced-configuration.md#8"
+  },
+  {
+    "question": "怎样在自动生成的接口说明里补充额外信息？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "换说法",
+    "source_chunk": "advanced/path-operation-advanced-configuration.md#8"
+  },
+  {
+    "question": "在 OpenAPI 的所有 Schema 中，为什么会有 `Item-Input` 和 `Item-Output` 两个？`description` 在它们中是否必填？",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "type": "原词",
+    "source_chunk": "how-to/separate-openapi-schemas.md#4"
+  },
+  {
+    "question": "接口文档里同一个数据模型为什么会分成输入和输出两个版本？输入时说明项可以不填，输出时说明项必须填，对吗？",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "type": "换说法",
+    "source_chunk": "how-to/separate-openapi-schemas.md#4"
+  },
+  {
+    "question": "在 FastAPI 中，可以使用什么来声明 cookie？",
+    "expected_doc": "tutorial/cookie-param-models.md",
+    "type": "原词",
+    "source_chunk": "tutorial/cookie-param-models.md#4"
+  },
+  {
+    "question": "在这个 Python Web 框架里，要给浏览器保存的小段信息做定义，应该借助什么？",
+    "expected_doc": "tutorial/cookie-param-models.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/cookie-param-models.md#4"
+  },
+  {
+    "question": "在 FastAPI 0.110.0 之前，如果在带 `yield` 的依赖项中用 `except` 捕获了异常且没有再次抛出，会发生什么？",
+    "expected_doc": "advanced/advanced-dependencies.md",
+    "type": "原词",
+    "source_chunk": "advanced/advanced-dependencies.md#9"
+  },
+  {
+    "question": "在旧版本里，如果某个会中途暂停的请求处理组件把出错情况接住了但没有继续上报，这个错误最后会被自动交给谁处理？",
+    "expected_doc": "advanced/advanced-dependencies.md",
+    "type": "换说法",
+    "source_chunk": "advanced/advanced-dependencies.md#9"
+  },
+  {
+    "question": "Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit) 这行信息说明了什么？",
+    "expected_doc": "tutorial/first-steps.md",
+    "type": "原词",
+    "source_chunk": "tutorial/first-steps.md#7"
+  },
+  {
+    "question": "程序跑起来后，终端里显示一个 127.0.0.1:8000 的提示，是告诉我什么？",
+    "expected_doc": "tutorial/first-steps.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/first-steps.md#7"
+  },
+  {
+    "question": "FastAPI 提供的 fastapi.testclient 和 starlette.testclient 是什么关系？",
+    "expected_doc": "tutorial/testing.md",
+    "type": "原词",
+    "source_chunk": "tutorial/testing.md#2"
+  },
+  {
+    "question": "FastAPI 里的测试客户端和它底层框架提供的测试客户端是一样的吗？提供这个只是为了方便开发者吗？",
+    "expected_doc": "tutorial/testing.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/testing.md#2"
+  },
+  {
+    "question": "即使用 Pydantic 模型定义 JSON Schema，并把它包含到路径操作的自定义 OpenAPI 方案中，即使请求中的数据类型不是 JSON，也可以这样做吗？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "原词",
+    "source_chunk": "advanced/path-operation-advanced-configuration.md#9"
+  },
+  {
+    "question": "如果接口实际收到的内容格式不是普通的结构化文本格式，我还能不能先用一个数据模型描述数据长什么样，再把它加到该接口的文档说明里？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "换说法",
+    "source_chunk": "advanced/path-operation-advanced-configuration.md#9"
+  },
+  {
+    "question": "pydantic.dataclasses 是 dataclasses 的可直接替换版本吗？",
+    "expected_doc": "advanced/dataclasses.md",
+    "type": "原词",
+    "source_chunk": "advanced/dataclasses.md#3"
+  },
+  {
+    "question": "我能不能把项目里原来的定义方式直接换成文档推荐的方案，而不需要重写很多代码？",
+    "expected_doc": "advanced/dataclasses.md",
+    "type": "换说法",
+    "source_chunk": "advanced/dataclasses.md#3"
+  },
+  {
+    "question": "`404` 用于什么响应？",
+    "expected_doc": "tutorial/response-status-code.md",
+    "type": "原词",
+    "source_chunk": "tutorial/response-status-code.md#3"
+  },
+  {
+    "question": "想访问的页面不存在时，通常会看到哪个三位数字？",
+    "expected_doc": "tutorial/response-status-code.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/response-status-code.md#3"
+  },
+  {
+    "question": "工作进程负责做什么？它们会把什么加载到 RAM？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "原词",
+    "source_chunk": "deployment/concepts.md#13"
+  },
+  {
+    "question": "程序跑起来后，是哪些东西在接收用户访问、处理任务并把结果返回去，还会把变量内容放进内存？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "换说法",
+    "source_chunk": "deployment/concepts.md#13"
+  },
+  {
+    "question": "当函数返回的类型与声明的类型不同时，应该使用哪个路径操作装饰器参数，而不是返回类型？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "原词",
+    "source_chunk": "tutorial/response-model.md#2"
+  },
+  {
+    "question": "如果我的处理函数返回的内容和类型注解写的不一样，我该在哪里设置实际响应格式？是加在路由装饰器上，还是加在函数参数里？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/response-model.md#2"
+  },
+  {
+    "question": "为什么在 FastAPI 中使用 SQLite 时，需要允许在不同线程中使用同一个数据库？FastAPI 又是如何确保每个请求使用单独的 SQLModel 会话（session）的？",
+    "expected_doc": "tutorial/sql-databases.md",
+    "type": "原词",
+    "source_chunk": "tutorial/sql-databases.md#6"
+  },
+  {
+    "question": "当一次网页操作可能由多条执行路径共同完成时，为什么需要让它们访问同一份本地数据文件？这个框架怎样保证每次网页操作都拥有自己的数据操作上下文？",
+    "expected_doc": "tutorial/sql-databases.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/sql-databases.md#6"
+  },
+  {
+    "question": "如何在路径操作装饰器中添加 dependencies 参数？",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "type": "原词",
+    "source_chunk": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#0"
+  },
+  {
+    "question": "如果有个函数我只是想让它执行，不需要它返回的结果，也不想把它写成接口函数的参数，该怎么配置？",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#0"
+  },
+  {
+    "question": "实现自定义响应时，需要实现哪个 `Response.render(content)` 方法并返回什么类型？",
+    "expected_doc": "advanced/custom-response.md",
+    "type": "原词",
+    "source_chunk": "advanced/custom-response.md#14"
+  },
+  {
+    "question": "如果我想自己控制接口返回的内容，应该写哪个函数，并让它最终交出什么格式的数据？",
+    "expected_doc": "advanced/custom-response.md",
+    "type": "换说法",
+    "source_chunk": "advanced/custom-response.md#14"
+  },
+  {
+    "question": "在 WebSocket 中抛出 HTTPException 是否合理？应该抛出什么异常？",
+    "expected_doc": "advanced/websockets.md",
+    "type": "原词",
+    "source_chunk": "advanced/websockets.md#5"
+  },
+  {
+    "question": "长连接接口里出错时，用普通的网页请求异常合适吗？应该改用哪种专门的异常？还能使用标准里规定的什么关闭编号？",
+    "expected_doc": "advanced/websockets.md",
+    "type": "换说法",
+    "source_chunk": "advanced/websockets.md#5"
+  }
+]

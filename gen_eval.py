@@ -3,12 +3,27 @@ import random
 from llm import ask_llm
 from ingest import load_data,save_data
 chunks = load_data("data/chunks.json")
-random.seed(42)
-save_path="data/eval_candidates.json"
-sample = random.sample(chunks,20)
+random.seed(40)
+save_path="data/eval_candidates2.json"
+
 count=0
 c_num=0
 records = []
+used_id=set()
+used_file= load_data("data/eval_questions.json")
+for f in used_file:
+    used_id.add(f["expected_doc"])
+used_file= load_data("data/eval_candidates.json")
+for f in used_file:
+    used_id.add(f["expected_doc"])
+new_chunks = []
+for chunk in chunks:
+    if chunk["doc_id"]  not in used_id:
+        new_chunks.append(chunk)
+
+
+sample = random.sample(new_chunks,25)
+
 
 for chunk in sample:
     c_num+=1

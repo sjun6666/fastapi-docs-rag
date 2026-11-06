@@ -143,5 +143,115 @@
     "question": "如果不想只靠固定格式匹配，还想自己写规则检查输入，文档说可以借助哪个工具？",
     "expected_doc": "tutorial/query-params-str-validations.md",
     "type": "换说法"
+  },
+  {
+    "question": "如何通过 `openapi_tags` 为用于分组路径操作的不同标签添加额外元数据？",
+    "expected_doc": "tutorial/metadata.md",
+    "type": "原词"
+  },
+  {
+    "question": "怎样给接口分类名称补充说明和外部文档链接？",
+    "expected_doc": "tutorial/metadata.md",
+    "type": "换说法"
+  },
+  {
+    "question": "为什么文档建议避免使用 `Optional[SomeType]`，改用 `Union[SomeType, None]`？",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "type": "原词"
+  },
+  {
+    "question": "在类型标注里表示某个值也可能是空值时，作者为什么更推荐另一种写法，而不是名字容易让人以为可以不传参的那种？",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "type": "换说法"
+  },
+  {
+    "question": "当服务器已经用完 100% 的 CPU 和 RAM 时，继续硬撑可能会导致什么问题？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果机器已经忙到没有一点余量，还继续硬扛着会带来哪些风险？",
+    "expected_doc": "deployment/concepts.md",
+    "type": "换说法"
+  },
+  {
+    "question": "在 OpenAPI 的所有 Schema 中，为什么会有 `Item-Input` 和 `Item-Output` 两个？`description` 在它们中是否必填？",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "type": "原词"
+  },
+  {
+    "question": "接口文档里同一个数据模型为什么会分成输入和输出两个版本？输入时说明项可以不填，输出时说明项必须填，对吗？",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 提供的 fastapi.testclient 和 starlette.testclient 是什么关系？",
+    "expected_doc": "tutorial/testing.md",
+    "type": "原词"
+  },
+  {
+    "question": "FastAPI 里的测试客户端和它底层框架提供的测试客户端是一样的吗？提供这个只是为了方便开发者吗？",
+    "expected_doc": "tutorial/testing.md",
+    "type": "换说法"
+  },
+  {
+    "question": "即使用 Pydantic 模型定义 JSON Schema，并把它包含到路径操作的自定义 OpenAPI 方案中，即使请求中的数据类型不是 JSON，也可以这样做吗？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果接口实际收到的内容格式不是普通的结构化文本格式，我还能不能先用一个数据模型描述数据长什么样，再把它加到该接口的文档说明里？",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "type": "换说法"
+  },
+  {
+    "question": "当函数返回的类型与声明的类型不同时，应该使用哪个路径操作装饰器参数，而不是返回类型？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果我的处理函数返回的内容和类型注解写的不一样，我该在哪里设置实际响应格式？是加在路由装饰器上，还是加在函数参数里？",
+    "expected_doc": "tutorial/response-model.md",
+    "type": "换说法"
+  },
+  {
+    "question": "为什么在 FastAPI 中使用 SQLite 时，需要允许在不同线程中使用同一个数据库？FastAPI 又是如何确保每个请求使用单独的 SQLModel 会话（session）的？",
+    "expected_doc": "tutorial/sql-databases.md",
+    "type": "原词"
+  },
+  {
+    "question": "当一次网页操作可能由多条执行路径共同完成时，为什么需要让它们访问同一份本地数据文件？这个框架怎样保证每次网页操作都拥有自己的数据操作上下文？",
+    "expected_doc": "tutorial/sql-databases.md",
+    "type": "换说法"
+  },
+  {
+    "question": "如何在路径操作装饰器中添加 dependencies 参数？",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果有个函数我只是想让它执行，不需要它返回的结果，也不想把它写成接口函数的参数，该怎么配置？",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "type": "换说法"
+  },
+  {
+    "question": "在 WebSocket 中抛出 HTTPException 是否合理？应该抛出什么异常？",
+    "expected_doc": "advanced/websockets.md",
+    "type": "原词"
+  },
+  {
+    "question": "长连接接口里出错时，用普通的网页请求异常合适吗？应该改用哪种专门的异常？还能使用标准里规定的什么关闭编号？",
+    "expected_doc": "advanced/websockets.md",
+    "type": "换说法"
+  },
+  {
+    "question": "创建 `OAuth2PasswordBearer` 实例时，必须传入的 `tokenUrl` 参数有什么作用？",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "type": "原词"
+  },
+  {
+    "question": "前端登录时，应该把账号和口令发到哪个地址来换取访问凭证？这个地址在 FastAPI 里怎么设置？",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "type": "换说法"
   }
 ]
