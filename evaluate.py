@@ -5,6 +5,11 @@ from sentence_transformers import SentenceTransformer
 import vector_search
 import hybrid_search
 
+def has_identifier(question):
+    if "_" in question or "`" in question:
+        return True
+    else:
+        return False
 
 if __name__=="__main__":
     t0 = time.perf_counter()
@@ -15,6 +20,33 @@ if __name__=="__main__":
     hit__change_original=0
     miss_count = 0
     bm25 = bm25_search.build_index(data)
+    id_q_count = 0
+    word_question=[]
+    model = SentenceTransformer("BAAI/bge-small-zh-v1.5")
+    vectors = vector_search.get_vectors(chunks, model)
+    all_right=0
+    for q in test:
+        if has_identifier(q["question"]):
+            print(q["question"])
+            word_question.append(q["question"])
+            result_v = vector_search.vector_search(q["question"], model, vectors, chunks)
+            result_bm = bm25_search.search(q["question"], bm25, chunks)
+            hit_vec = any(r["doc_id"] == q["expected_doc"] for r in result_v)
+            hit_bm = any(r["doc_id"] == q["expected_doc"] for r in result_bm)
+            if hit_vec == hit_bm == True:
+                all_right += 1
+            if hit_vec == hit_bm == False:
+                print("两个都错：", q["question"])
+            if hit_vec == True and hit_bm == False:
+                print("bm25错：", q["question"])
+            if hit_vec == False and hit_bm == True:
+                print("v错误", q["question"])
+    print("两个都对", all_right)
+    print("一共有多少数据", len(test), "命中数据", hit_original + hit__change_original, "类型是原词的有：",
+              hit_original, "类型是换说法的有", hit__change_original,
+              "出错的有", miss_count)
+
+
     for q in test:
         result = bm25_search.search(q["question"], bm25,chunks)
         if any(r["doc_id"] == q["expected_doc"]for r in result):
@@ -45,9 +77,8 @@ if __name__=="__main__":
     print("一共有多少数据", len(test), "命中数据", hit_original + hit__change_original, "类型是原词的有：", hit_original,
           "类型是换说法的有", hit__change_original,
           "出错的有", miss_count)
-    model = SentenceTransformer("BAAI/bge-small-zh-v1.5")  # 只加载一次
     chunks = load_data("data/chunks.json")
-    vectors = vector_search.get_vectors(chunks, model)
+
     hit_original = 0
     hit__change_original = 0
 
