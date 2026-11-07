@@ -1,6 +1,8 @@
 from ingest import load_data
-from bm25_search import build_index, search
+import time
 from llm import ask_llm
+from vector_search import vector_search,get_vectors
+from sentence_transformers import SentenceTransformer
 
 def build_prompt(question, results):
     q_r_list=[]
@@ -22,20 +24,27 @@ def build_prompt(question, results):
     问题：{question}
     """
     return prompt
-def answer(question, bm25,chunks):
 
-    results = search(question,bm25, chunks)
+
+def answer(question, model, vectors, chunks):
+    results = vector_search(question, model, vectors, chunks)
     prompt = build_prompt(question, results)
     reply = ask_llm(prompt)
     sources = []
     for r in results:
         sources.append(r["chunk_id"])
     return {"answer": reply, "sources": sources}
+
+
 if __name__ == "__main__":
+    model = SentenceTransformer("BAAI/bge-small-zh-v1.5")
+
     chunks = load_data("data/chunks.json")
-    bm25 = build_index(chunks)
-    for q in ["怎么声明路径参数","前端调用接口被浏览器拦截了怎么办","Django 怎么配置数据库"]:
-        print(answer(q, bm25, chunks))
+    vectors = get_vectors(chunks, model)
+
+    questions=["response_model_exclude_unset 有什么作用？","网址问号后面的参数怎么读取","Django 怎么配置数据库"]
+    for q in questions:
+        print(answer(q, model, vectors, chunks))
 
 
 
