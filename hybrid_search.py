@@ -4,7 +4,7 @@ from ingest import load_data
 from sentence_transformers import SentenceTransformer
 
 
-def hybrid_search(query,bm25,model,vectors,chunks,k=5,n=20):
+def hybrid_search(query,bm25,model,vectors,chunks,k=5,n=20,w_bm=1,w_ve=1):
     results_bm=search(query,bm25,chunks,n)
     results_ve=vector_search(query,model,vectors,chunks,n)
     score={}
@@ -14,11 +14,11 @@ def hybrid_search(query,bm25,model,vectors,chunks,k=5,n=20):
     for rank,r in enumerate(results_bm,start=1):
         if r['chunk_id'] not in score:
             score[r['chunk_id']] = 0
-        score[r['chunk_id']] += 1/(60+rank)
+        score[r['chunk_id']] += 1/(60+rank) * w_bm
     for rank,r in enumerate(results_ve,start=1):
         if r['chunk_id'] not in score:
             score[r['chunk_id']] = 0
-        score[r['chunk_id']] += 1/(60+rank)
+        score[r['chunk_id']] += 1/(60+rank) * w_ve
     top_ids = sorted(score,key = lambda cid : score[cid], reverse=True)[:k]
     result = []
     for i in top_ids:
