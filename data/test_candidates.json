@@ -1,0 +1,398 @@
+[
+  {
+    "question": "FastAPI 从哪个版本开始新增对 Annotated 的支持并开始推荐使用？",
+    "expected_doc": "tutorial/dependencies/index.md",
+    "type": "原词",
+    "source_chunk": "tutorial/dependencies/index.md#2"
+  },
+  {
+    "question": "我听说有一种写在类型标注里的新用法需要较新的框架，从什么时候起才能用，而且官方也建议这样写？",
+    "expected_doc": "tutorial/dependencies/index.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/dependencies/index.md#2"
+  },
+  {
+    "question": "如何在路径操作中重用一些预定义响应，并把它们与额外的自定义响应组合在一起？",
+    "expected_doc": "advanced/additional-responses.md",
+    "type": "原词",
+    "source_chunk": "advanced/additional-responses.md#15"
+  },
+  {
+    "question": "我想让某个接口复用已经定义好的返回结果，同时再补充一些自己定制的返回内容，该怎么做？",
+    "expected_doc": "advanced/additional-responses.md",
+    "type": "换说法",
+    "source_chunk": "advanced/additional-responses.md#15"
+  },
+  {
+    "question": "FastAPI 从哪个版本开始，内置安全工具在认证失败时不再返回 403 Forbidden，而是返回 401 Unauthorized？",
+    "expected_doc": "how-to/authentication-error-status-code.md",
+    "type": "原词",
+    "source_chunk": "how-to/authentication-error-status-code.md#0"
+  },
+  {
+    "question": "这个框架从哪一版起，用户身份验证没通过时不再给原来的错误码，而是换成更符合规范的那个？",
+    "expected_doc": "how-to/authentication-error-status-code.md",
+    "type": "换说法",
+    "source_chunk": "how-to/authentication-error-status-code.md#0"
+  },
+  {
+    "question": "FastAPI 应用中的主文件是哪个？它通常会导入并使用什么类？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "原词",
+    "source_chunk": "tutorial/bigger-applications.md#17"
+  },
+  {
+    "question": "在一个项目里，负责把各个部分集中到一起的文件通常位于哪里？这个文件一般会创建哪个框架的核心类？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/bigger-applications.md#17"
+  },
+  {
+    "question": "怎样为 Pydantic 模型声明 examples，使其被添加到生成的 JSON Schema 并在 API 文档中使用？",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "type": "原词",
+    "source_chunk": "tutorial/schema-extra-example.md#0"
+  },
+  {
+    "question": "我想让接口文档里展示的数据模型附带示例，应该怎么设置？",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/schema-extra-example.md#0"
+  },
+  {
+    "question": "如何自定义 FastAPI 的唯一操作 ID 生成函数，并通过什么参数传给 FastAPI？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "原词",
+    "source_chunk": "advanced/generate-clients.md#7"
+  },
+  {
+    "question": "我想让接口自动生成的标识按自己的规则来，应该怎么设置？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "换说法",
+    "source_chunk": "advanced/generate-clients.md#7"
+  },
+  {
+    "question": "FastAPI 中针对 `pydantic.v1` 的临时支持是在哪个版本添加、哪个版本移除的？",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "type": "原词",
+    "source_chunk": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#4"
+  },
+  {
+    "question": "让旧式模型写法还能继续用的过渡功能，是从哪一版开始有、又在哪一版不再提供？",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "type": "换说法",
+    "source_chunk": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#4"
+  },
+  {
+    "question": "FastAPI 中 startup 和 shutdown 生命周期事件会在子应用上执行吗？",
+    "expected_doc": "advanced/events.md",
+    "type": "原词",
+    "source_chunk": "advanced/events.md#9"
+  },
+  {
+    "question": "被附加到上级程序里的那部分，会执行程序启动和关闭时的处理吗？",
+    "expected_doc": "advanced/events.md",
+    "type": "换说法",
+    "source_chunk": "advanced/events.md#9"
+  },
+  {
+    "question": "FastAPI 中，为什么 users.py 和 items.py 可以通过 from .routers import items, users 这种相对导入来导入？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "原词",
+    "source_chunk": "tutorial/bigger-applications.md#18"
+  },
+  {
+    "question": "当主程序和另外两个功能文件在同一个应用目录结构里时，主程序怎样用更短的写法把旁边文件夹里的这两个功能文件引进来？开头那个点表示从哪儿开始找？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/bigger-applications.md#18"
+  },
+  {
+    "question": "在 FastAPI 中，声明 header 参数必须使用什么？否则该参数会被解释为什么？",
+    "expected_doc": "tutorial/header-params.md",
+    "type": "原词",
+    "source_chunk": "tutorial/header-params.md#1"
+  },
+  {
+    "question": "在 FastAPI 里，如果想从请求的头部取值，应该用什么来定义参数？如果不这样定义，它会被当成哪类参数？",
+    "expected_doc": "tutorial/header-params.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/header-params.md#1"
+  },
+  {
+    "question": "如何在依赖项中声明 `Response` 参数，并在其中设置头部和 cookies？",
+    "expected_doc": "advanced/response-headers.md",
+    "type": "原词",
+    "source_chunk": "advanced/response-headers.md#1"
+  },
+  {
+    "question": "如果我想在多个接口共用的准备步骤里，给最终发回浏览器的内容附加一些信息（比如标记），应该怎么做？",
+    "expected_doc": "advanced/response-headers.md",
+    "type": "换说法",
+    "source_chunk": "advanced/response-headers.md#1"
+  },
+  {
+    "question": "在 FastAPI 中挂载 Flask、Django 等 WSGI 应用时，应该使用哪个中间件？需要从哪里导入它？",
+    "expected_doc": "advanced/wsgi.md",
+    "type": "原词",
+    "source_chunk": "advanced/wsgi.md#0"
+  },
+  {
+    "question": "我有一个用别的 Python Web 框架写好的旧服务，想接到 FastAPI 的某个地址下面，需要先安装什么、再导入什么，最后怎么放？",
+    "expected_doc": "advanced/wsgi.md",
+    "type": "换说法",
+    "source_chunk": "advanced/wsgi.md#0"
+  },
+  {
+    "question": "FastAPI 中的服务器发送事件（SSE）可以用来做什么？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "原词",
+    "source_chunk": "tutorial/server-sent-events.md#0"
+  },
+  {
+    "question": "这个框架里那种让服务端通过网络连接不断把数据分小段推给网页的功能有什么用途？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/server-sent-events.md#0"
+  },
+  {
+    "question": "如何查看自动化的 API 文档？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "原词",
+    "source_chunk": "tutorial/bigger-applications.md#28"
+  },
+  {
+    "question": "应用跑起来后，在哪能看到接口说明页面？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/bigger-applications.md#28"
+  },
+  {
+    "question": "为什么使用 TLS 终止代理时，建议用一个单独系统处理 HTTPS，而不是直接在应用服务器（例如 Uvicorn）上使用 TLS 证书？",
+    "expected_doc": "deployment/https.md",
+    "type": "原词",
+    "source_chunk": "deployment/https.md#13"
+  },
+  {
+    "question": "为什么更推荐让一个独立服务专门负责加密访问，而不是让运行网站程序的机器自己管理加密证书？",
+    "expected_doc": "deployment/https.md",
+    "type": "换说法",
+    "source_chunk": "deployment/https.md#13"
+  },
+  {
+    "question": "在带有 `yield` 的依赖中，可以使用 `except` 捕获异常并抛出 `HTTPException` 吗？",
+    "expected_doc": "tutorial/dependencies/dependencies-with-yield.md",
+    "type": "原词",
+    "source_chunk": "tutorial/dependencies/dependencies-with-yield.md#5"
+  },
+  {
+    "question": "在那种先做准备工作、结束后再收尾的处理流程里，中途出问题时能先接住错误，并改成另一种报错吗？",
+    "expected_doc": "tutorial/dependencies/dependencies-with-yield.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/dependencies/dependencies-with-yield.md#5"
+  },
+  {
+    "question": "使用 EventSourceResponse 时，每个被 yield 的项会怎样编码并放入 SSE 事件的哪个字段？如果将返回类型声明为 AsyncIterable[Item]，FastAPI 会通过 Pydantic 做什么？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "原词",
+    "source_chunk": "tutorial/server-sent-events.md#2"
+  },
+  {
+    "question": "用 FastAPI 做持续推送消息时，我每次产出的内容会以什么形式发给客户端？如果我把返回内容的类型写清楚，框架会自动帮我做哪些处理？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/server-sent-events.md#2"
+  },
+  {
+    "question": "在 FastAPI 中，需要接收表单字段而不是 JSON 时，应该使用什么？",
+    "expected_doc": "tutorial/request-forms.md",
+    "type": "原词",
+    "source_chunk": "tutorial/request-forms.md#0"
+  },
+  {
+    "question": "如果我想让接口接收用户在网页里填写并提交的输入项，而不是那种结构化数据，应该用哪个参数？",
+    "expected_doc": "tutorial/request-forms.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/request-forms.md#0"
+  },
+  {
+    "question": "当响应内容类型是 application/jsonl 时，响应体和 JSON 数组的写法有什么不同？",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "type": "原词",
+    "source_chunk": "tutorial/stream-json-lines.md#2"
+  },
+  {
+    "question": "服务端想边生成边发送多条数据时，返回内容为什么要一行一个对象，而不是像普通列表那样整体返回？",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/stream-json-lines.md#2"
+  },
+  {
+    "question": "`with` 代码块能确保在生成器函数完成后做什么？",
+    "expected_doc": "advanced/stream-data.md",
+    "type": "原词",
+    "source_chunk": "advanced/stream-data.md#5"
+  },
+  {
+    "question": "响应发出去以后，怎么保证那个用来读写的对象会被关掉？",
+    "expected_doc": "advanced/stream-data.md",
+    "type": "换说法",
+    "source_chunk": "advanced/stream-data.md#5"
+  },
+  {
+    "question": "高级安全有哪些附加特性？",
+    "expected_doc": "advanced/security/index.md",
+    "type": "原词",
+    "source_chunk": "advanced/security/index.md#0"
+  },
+  {
+    "question": "除了入门部分讲的基础防护内容，这个框架还提供哪些相关功能？",
+    "expected_doc": "advanced/security/index.md",
+    "type": "换说法",
+    "source_chunk": "advanced/security/index.md#0"
+  },
+  {
+    "question": "在带有 yield 的依赖中使用 try 时，如果路径操作或其他依赖抛出异常，我能在依赖里用 except 捕获吗？",
+    "expected_doc": "tutorial/dependencies/dependencies-with-yield.md",
+    "type": "原词",
+    "source_chunk": "tutorial/dependencies/dependencies-with-yield.md#2"
+  },
+  {
+    "question": "如果我在一个请求结束后负责收尾的函数里写了错误处理，而请求处理中间出了问题，这个函数能收到并处理那个错误吗？",
+    "expected_doc": "tutorial/dependencies/dependencies-with-yield.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/dependencies/dependencies-with-yield.md#2"
+  },
+  {
+    "question": "FastAPI 的 app.frontend() 默认 fallback 是什么？如果前端目录中存在 404.html，缺失的前端路径会返回什么？",
+    "expected_doc": "tutorial/frontend.md",
+    "type": "原词",
+    "source_chunk": "tutorial/frontend.md#4"
+  },
+  {
+    "question": "我配前端时没有专门设置缺省处理，访问不存在的页面会怎样？如果目录里有一个专门表示找不到页面的文件，会显示哪个文件、状态码是多少？",
+    "expected_doc": "tutorial/frontend.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/frontend.md#4"
+  },
+  {
+    "question": "在调试面板中添加配置后，使用哪个选项可以运行 FastAPI 调试器？",
+    "expected_doc": "tutorial/debugging.md",
+    "type": "原词",
+    "source_chunk": "tutorial/debugging.md#3"
+  },
+  {
+    "question": "我想让写好的 FastAPI 服务跑起来，并在设了暂停的地方停住，应该选开发工具里的哪个选项？",
+    "expected_doc": "tutorial/debugging.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/debugging.md#3"
+  },
+  {
+    "question": "如何在一个容器里运行多个 Uvicorn worker 进程？",
+    "expected_doc": "deployment/docker.md",
+    "type": "原词",
+    "source_chunk": "deployment/docker.md#28"
+  },
+  {
+    "question": "如果我想让同一台服务环境里同时跑好几个处理进程，该用什么命令参数指定个数？",
+    "expected_doc": "deployment/docker.md",
+    "type": "换说法",
+    "source_chunk": "deployment/docker.md#28"
+  },
+  {
+    "question": "FastAPI 中如何将文件参数设为可选？",
+    "expected_doc": "tutorial/request-files.md",
+    "type": "原词",
+    "source_chunk": "tutorial/request-files.md#8"
+  },
+  {
+    "question": "如果某个文件用户可以选择不传，代码里应该怎么写？",
+    "expected_doc": "tutorial/request-files.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/request-files.md#8"
+  },
+  {
+    "question": "OpenTelemetry 常见的遥测类型有哪些？",
+    "expected_doc": "advanced/opentelemetry.md",
+    "type": "原词",
+    "source_chunk": "advanced/opentelemetry.md#0"
+  },
+  {
+    "question": "想了解应用运行情况时，通常可以收集哪几类数据？它们分别能说明什么？",
+    "expected_doc": "advanced/opentelemetry.md",
+    "type": "换说法",
+    "source_chunk": "advanced/opentelemetry.md#0"
+  },
+  {
+    "question": "FastAPI 应用中的 `webhooks` 属性可以用来做什么？定义后的网络钩子会出现在哪里？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "原词",
+    "source_chunk": "advanced/openapi-webhooks.md#2"
+  },
+  {
+    "question": "用这个 Python 框架时，怎样声明由外部事件触发的通知入口？声明后会自动出现在生成的接口文档界面中吗？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "换说法",
+    "source_chunk": "advanced/openapi-webhooks.md#2"
+  },
+  {
+    "question": "如何用另一个模型的内容生成 Pydantic 模型？",
+    "expected_doc": "tutorial/extra-models.md",
+    "type": "原词",
+    "source_chunk": "tutorial/extra-models.md#4"
+  },
+  {
+    "question": "我已经有一个填好数据的用户输入对象，想用它的字段再创建一个数据库用的用户对象，代码该怎么写？",
+    "expected_doc": "tutorial/extra-models.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/extra-models.md#4"
+  },
+  {
+    "question": "使用 FastAPI 时，如何利用 OpenAPI 文档化网络钩子？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "原词",
+    "source_chunk": "advanced/openapi-webhooks.md#1"
+  },
+  {
+    "question": "应用主动发给外部的自动通知，怎样描述才能让对方更容易实现接收接口，甚至自动生成部分代码？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "换说法",
+    "source_chunk": "advanced/openapi-webhooks.md#1"
+  },
+  {
+    "question": "非 async 的路径操作函数可以使用 yield 吗？如果可以，正确的返回类型应该是什么？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "原词",
+    "source_chunk": "tutorial/server-sent-events.md#3"
+  },
+  {
+    "question": "普通的同步函数也能一边运行一边逐条产出数据吗？这种情况下类型标注要怎么写，会不会卡住事件循环？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "换说法",
+    "source_chunk": "tutorial/server-sent-events.md#3"
+  },
+  {
+    "question": "TechEmpower 的基准测试表明，在 Uvicorn 下运行的 FastAPI 应用程序速度如何？",
+    "expected_doc": "benchmarks.md",
+    "type": "原词",
+    "source_chunk": "benchmarks.md#0"
+  },
+  {
+    "question": "有外部机构做性能比较时，这个框架跑起来大概排在什么位置，落后于哪些东西？",
+    "expected_doc": "benchmarks.md",
+    "type": "换说法",
+    "source_chunk": "benchmarks.md#0"
+  },
+  {
+    "question": "生成带标签的 TypeScript 客户端时，客户端代码通常如何按标签组织？会得到哪些服务类？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "原词",
+    "source_chunk": "advanced/generate-clients.md#5"
+  },
+  {
+    "question": "如果接口内容分成 items 和 users 两部分，前端自动生成调用代码时通常会怎么归类？会得到哪两个类？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "换说法",
+    "source_chunk": "advanced/generate-clients.md#5"
+  }
+]

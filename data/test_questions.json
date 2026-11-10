@@ -1,0 +1,182 @@
+[
+  {
+    "question": "如何在路径操作中重用一些预定义响应，并把它们与额外的自定义响应组合在一起？",
+    "expected_doc": "advanced/additional-responses.md",
+    "type": "原词"
+  },
+  {
+    "question": "我想让某个接口复用已经定义好的返回结果，同时再补充一些自己定制的返回内容，该怎么做？",
+    "expected_doc": "advanced/additional-responses.md",
+    "type": "换说法"
+  },
+  {
+    "question": "怎样为 Pydantic 模型声明 examples，使其被添加到生成的 JSON Schema 并在 API 文档中使用？",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "type": "原词"
+  },
+  {
+    "question": "我想让接口文档里展示的数据模型附带示例，应该怎么设置？",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 中针对 `pydantic.v1` 的临时支持是在哪个版本添加、哪个版本移除的？",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "type": "原词"
+  },
+  {
+    "question": "让旧式模型写法还能继续用的过渡功能，是从哪一版开始有、又在哪一版不再提供？",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 中，为什么 users.py 和 items.py 可以通过 from .routers import items, users 这种相对导入来导入？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "原词"
+  },
+  {
+    "question": "当主程序和另外两个功能文件在同一个应用目录结构里时，主程序怎样用更短的写法把旁边文件夹里的这两个功能文件引进来？开头那个点表示从哪儿开始找？",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "type": "换说法"
+  },
+  {
+    "question": "在 FastAPI 中，声明 header 参数必须使用什么？否则该参数会被解释为什么？",
+    "expected_doc": "tutorial/header-params.md",
+    "type": "原词"
+  },
+  {
+    "question": "在 FastAPI 里，如果想从请求的头部取值，应该用什么来定义参数？如果不这样定义，它会被当成哪类参数？",
+    "expected_doc": "tutorial/header-params.md",
+    "type": "换说法"
+  },
+  {
+    "question": "在 FastAPI 中挂载 Flask、Django 等 WSGI 应用时，应该使用哪个中间件？需要从哪里导入它？",
+    "expected_doc": "advanced/wsgi.md",
+    "type": "原词"
+  },
+  {
+    "question": "我有一个用别的 Python Web 框架写好的旧服务，想接到 FastAPI 的某个地址下面，需要先安装什么、再导入什么，最后怎么放？",
+    "expected_doc": "advanced/wsgi.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 中的服务器发送事件（SSE）可以用来做什么？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "原词"
+  },
+  {
+    "question": "这个框架里那种让服务端通过网络连接不断把数据分小段推给网页的功能有什么用途？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "换说法"
+  },
+  {
+    "question": "为什么使用 TLS 终止代理时，建议用一个单独系统处理 HTTPS，而不是直接在应用服务器（例如 Uvicorn）上使用 TLS 证书？",
+    "expected_doc": "deployment/https.md",
+    "type": "原词"
+  },
+  {
+    "question": "为什么更推荐让一个独立服务专门负责加密访问，而不是让运行网站程序的机器自己管理加密证书？",
+    "expected_doc": "deployment/https.md",
+    "type": "换说法"
+  },
+  {
+    "question": "使用 EventSourceResponse 时，每个被 yield 的项会怎样编码并放入 SSE 事件的哪个字段？如果将返回类型声明为 AsyncIterable[Item]，FastAPI 会通过 Pydantic 做什么？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "原词"
+  },
+  {
+    "question": "用 FastAPI 做持续推送消息时，我每次产出的内容会以什么形式发给客户端？如果我把返回内容的类型写清楚，框架会自动帮我做哪些处理？",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "type": "换说法"
+  },
+  {
+    "question": "当响应内容类型是 application/jsonl 时，响应体和 JSON 数组的写法有什么不同？",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "type": "原词"
+  },
+  {
+    "question": "服务端想边生成边发送多条数据时，返回内容为什么要一行一个对象，而不是像普通列表那样整体返回？",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 的 app.frontend() 默认 fallback 是什么？如果前端目录中存在 404.html，缺失的前端路径会返回什么？",
+    "expected_doc": "tutorial/frontend.md",
+    "type": "原词"
+  },
+  {
+    "question": "我配前端时没有专门设置缺省处理，访问不存在的页面会怎样？如果目录里有一个专门表示找不到页面的文件，会显示哪个文件、状态码是多少？",
+    "expected_doc": "tutorial/frontend.md",
+    "type": "换说法"
+  },
+  {
+    "question": "在调试面板中添加配置后，使用哪个选项可以运行 FastAPI 调试器？",
+    "expected_doc": "tutorial/debugging.md",
+    "type": "原词"
+  },
+  {
+    "question": "我想让写好的 FastAPI 服务跑起来，并在设了暂停的地方停住，应该选开发工具里的哪个选项？",
+    "expected_doc": "tutorial/debugging.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 中如何将文件参数设为可选？",
+    "expected_doc": "tutorial/request-files.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果某个文件用户可以选择不传，代码里应该怎么写？",
+    "expected_doc": "tutorial/request-files.md",
+    "type": "换说法"
+  },
+  {
+    "question": "OpenTelemetry 常见的遥测类型有哪些？",
+    "expected_doc": "advanced/opentelemetry.md",
+    "type": "原词"
+  },
+  {
+    "question": "想了解应用运行情况时，通常可以收集哪几类数据？它们分别能说明什么？",
+    "expected_doc": "advanced/opentelemetry.md",
+    "type": "换说法"
+  },
+  {
+    "question": "FastAPI 应用中的 `webhooks` 属性可以用来做什么？定义后的网络钩子会出现在哪里？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "原词"
+  },
+  {
+    "question": "用这个 Python 框架时，怎样声明由外部事件触发的通知入口？声明后会自动出现在生成的接口文档界面中吗？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "换说法"
+  },
+  {
+    "question": "如何用另一个模型的内容生成 Pydantic 模型？",
+    "expected_doc": "tutorial/extra-models.md",
+    "type": "原词"
+  },
+  {
+    "question": "我已经有一个填好数据的用户输入对象，想用它的字段再创建一个数据库用的用户对象，代码该怎么写？",
+    "expected_doc": "tutorial/extra-models.md",
+    "type": "换说法"
+  },
+  {
+    "question": "使用 FastAPI 时，如何利用 OpenAPI 文档化网络钩子？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "原词"
+  },
+  {
+    "question": "应用主动发给外部的自动通知，怎样描述才能让对方更容易实现接收接口，甚至自动生成部分代码？",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "type": "换说法"
+  },
+  {
+    "question": "生成带标签的 TypeScript 客户端时，客户端代码通常如何按标签组织？会得到哪些服务类？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "原词"
+  },
+  {
+    "question": "如果接口内容分成 items 和 users 两部分，前端自动生成调用代码时通常会怎么归类？会得到哪两个类？",
+    "expected_doc": "advanced/generate-clients.md",
+    "type": "换说法"
+  }
+]
