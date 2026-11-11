@@ -1,0 +1,61 @@
+[{
+  "question": "在 FastAPI 中使用 transformer",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": "可能引用 lifespan 文档作答，人工复核"
+},
+{
+  "question": "在 FastAPI 中使用 mamba",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "内置限流",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "定时任务",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "接口缓存装饰器",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": "模型可能引用 settings.md 的 lru_cache 作答，人工复核"
+},
+{
+  "question": "打包成 exe",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "国际化错误提示",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "全局请求超时",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "……",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": ""
+},
+{
+  "question": "内置调用 DeepSeek",
+  "expected_doc": null,
+  "type": "无答案",
+  "note": "可能引用 stream-data／stream-json-lines 的流式 LLM 内容作答，人工复核"
+}
+]
