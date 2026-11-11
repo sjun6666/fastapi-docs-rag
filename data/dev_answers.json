@@ -1,0 +1,1430 @@
+[
+  {
+    "question": "怎么声明路径参数",
+    "type": "原词",
+    "expected_doc": "tutorial/path-params.md",
+    "answer": "声明路径参数的方法：\n\n- 使用与 Python 字符串格式化相同的语法声明路径“参数”或“变量” [2]。\n- 路径参数的值会作为同名参数传递给你的函数 [2]。\n- 使用 Python 标准类型注解声明路径操作函数中路径参数的类型，例如把 `item_id` 声明为 `int` [2]。\n- 也可以使用 `Path` 为路径参数声明校验和元数据；需要从 `fastapi` 导入 `Path`，并导入 `Annotated` [3]。\n- 使用 `Annotated` 时，需确保 FastAPI 版本至少为 0.95.1 [3]。\n- 声明路径参数后，可以提取、验证路径参数、转换为指定类型，还可以用 OpenAPI 注释 [5]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/query-params.md#0",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#0",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params-numeric-validations.md#0",
+        "doc_id": "tutorial/path-params-numeric-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#2",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "advanced/using-request-directly.md#2",
+        "doc_id": "advanced/using-request-directly.md"
+      }
+    ]
+  },
+  {
+    "question": "URL 里的变量怎么获取",
+    "type": "换说法",
+    "expected_doc": "tutorial/path-params.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#2",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      },
+      {
+        "chunk_id": "advanced/templates.md#4",
+        "doc_id": "advanced/templates.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#17",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#4",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/security/first-steps.md#7",
+        "doc_id": "tutorial/security/first-steps.md"
+      }
+    ]
+  },
+  {
+    "question": "网址问号后面的参数怎么读取",
+    "type": "换说法",
+    "expected_doc": "tutorial/query-params.md",
+    "answer": "在路径操作函数中声明“不是路径参数”的参数时，FastAPI 会自动把它解释为查询参数来读取 [1]。查询字符串位于 URL 的 `?` 之后，是键值对集合，并以 `&` 分隔 [1]。例如 `?skip=0&limit=10` 中可读取 `skip=0`、`limit=10` [1]。声明 Python 类型后，这些值会转换为声明的类型并进行类型校验 [1]。查询参数是可选的，还支持默认值 [2]。把默认值设为 `None` 可声明可选的查询参数 [3]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/query-params.md#0",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#1",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#2",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params-numeric-validations.md#5",
+        "doc_id": "tutorial/path-params-numeric-validations.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#8",
+        "doc_id": "advanced/generate-clients.md"
+      }
+    ]
+  },
+  {
+    "question": "怎么用 Pydantic 模型接收请求体",
+    "type": "原词",
+    "expected_doc": "tutorial/body.md",
+    "answer": "用 Pydantic 模型接收请求体的方式如下：\n\n1. 使用 Pydantic 模型来声明请求体 [2]。\n2. 从 `pydantic` 导入 `BaseModel`，并声明一个继承 `BaseModel` 的类，用 Python 标准类型声明属性 [3]。\n3. 将函数参数的类型声明为这个 Pydantic 模型，FastAPI 就会把它当作请求体，并从请求体中获取数据 [1][4]。\n4. 如果同时声明路径参数和请求体，匹配路径参数的函数参数从路径中获取，声明为 Pydantic 模型的函数参数从请求体中获取 [4]。\n5. 在函数内部可以直接访问模型对象的所有属性 [4]。\n6. 模型属性包含默认值时是可选的，否则是必选的；把默认值设为 `None` 可使其变为可选 [3]。\n7. 发送数据应使用 `POST`（最常见）、`PUT`、`DELETE` 或 `PATCH`；不推荐用 `GET` 发送请求体，且 Swagger UI 不会显示 `GET` 请求体的文档 [2][3]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/body.md#7",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#0",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#1",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#6",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#10",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      }
+    ]
+  },
+  {
+    "question": "前端调用接口被浏览器拦截了怎么办",
+    "type": "换说法",
+    "expected_doc": "tutorial/cors.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/handling-errors.md#0",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "advanced/strict-content-type.md#3",
+        "doc_id": "advanced/strict-content-type.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#2",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#5",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#5",
+        "doc_id": "advanced/behind-a-proxy.md"
+      }
+    ]
+  },
+  {
+    "question": "怎么创建虚拟环境",
+    "type": "原词",
+    "expected_doc": "virtual-environments.md",
+    "answer": "创建虚拟环境可按资料推荐使用 `uv`：\n\n1. 安装 `uv`，然后创建工程：`uv init awesome-project --bare`，进入目录后执行 `uv add \"fastapi[standard]\"` [1]。\n2. `uv add` 会在 `.venv` 中创建项目的虚拟环境 [4]。\n3. `uv` 会自动为工程创建虚拟环境，你不需要自己创建或激活虚拟环境 [1][2]。\n4. 使用 `uv run` 在工程环境中运行命令，例如 `uv run fastapi dev` [1][2]。\n\n资料还提到，可阅读虚拟环境指南了解包括替代的 `python -m venv` 和 `pip` 工作流 [2]。",
+    "sources": [
+      {
+        "chunk_id": "virtual-environments.md#0",
+        "doc_id": "virtual-environments.md"
+      },
+      {
+        "chunk_id": "virtual-environments.md#1",
+        "doc_id": "virtual-environments.md"
+      },
+      {
+        "chunk_id": "tutorial/index.md#11",
+        "doc_id": "tutorial/index.md"
+      },
+      {
+        "chunk_id": "tutorial/index.md#8",
+        "doc_id": "tutorial/index.md"
+      },
+      {
+        "chunk_id": "tutorial/body-nested-models.md#6",
+        "doc_id": "tutorial/body-nested-models.md"
+      }
+    ]
+  },
+  {
+    "question": "什么时候用 async def，什么时候用普通 def",
+    "type": "原词",
+    "expected_doc": "async.md",
+    "answer": "资料中没有给出“什么时候必须用 `async def`、什么时候必须用普通 `def`”的明确判断标准。[3][5]\n\n可依据的指导是：\n\n- 如果你不清楚，使用 `def` 就好。[3]\n- 可以根据需要在路径操作函数中混合使用 `def` 和 `async def`，选择最适合每个函数的方式，FastAPI 会正确处理。[3]\n- 依赖项也适用同样规则：可以使用 `async def` 或普通 `def`。[5]\n- 当路径操作函数用 `def` 而不是 `async def` 声明时，它会运行在外部线程池中并等待结果，而不是直接调用，因为它会阻塞服务器。[4]",
+    "sources": [
+      {
+        "chunk_id": "advanced/async-tests.md#1",
+        "doc_id": "advanced/async-tests.md"
+      },
+      {
+        "chunk_id": "async.md#20",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "async.md#2",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "async.md#24",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/index.md#6",
+        "doc_id": "tutorial/dependencies/index.md"
+      }
+    ]
+  },
+  {
+    "question": "找不到数据时怎么给客户端返回错误",
+    "type": "换说法",
+    "expected_doc": "tutorial/handling-errors.md",
+    "answer": "找不到数据时，可以用 `HTTPException` 向客户端返回 HTTP 错误响应 [1]。例如客户端请求不存在的 `item_id` 时，触发状态码为 `404` 的异常 [2]，客户端会收到 HTTP 状态码 404 及如下 JSON 响应：`{\"detail\": \"Item not found\"}` [5]。触发 `HTTPException` 时，`detail` 可传递任何能转换为 JSON 的值，不仅限于字符串，也支持 `dict`、`list` 等 [5]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/handling-errors.md#0",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#2",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "how-to/authentication-error-status-code.md#1",
+        "doc_id": "how-to/authentication-error-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#2",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#3",
+        "doc_id": "tutorial/handling-errors.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 默认对 JSON 请求体使用严格的 Content-Type 头检查吗？它要求请求包含什么样的 Content-Type 才会按 JSON 解析？",
+    "type": "原词",
+    "expected_doc": "advanced/strict-content-type.md",
+    "answer": "是的。FastAPI 默认对 JSON 请求体使用严格的 `Content-Type` 头检查 [1]。JSON 请求必须包含有效的 `Content-Type` 头（例如 `application/json`），其请求体才会被按 JSON 解析 [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/strict-content-type.md#0",
+        "doc_id": "advanced/strict-content-type.md"
+      },
+      {
+        "chunk_id": "tutorial/body-multiple-params.md#4",
+        "doc_id": "tutorial/body-multiple-params.md"
+      },
+      {
+        "chunk_id": "tutorial/body-multiple-params.md#3",
+        "doc_id": "tutorial/body-multiple-params.md"
+      },
+      {
+        "chunk_id": "tutorial/body-multiple-params.md#1",
+        "doc_id": "tutorial/body-multiple-params.md"
+      },
+      {
+        "chunk_id": "advanced/custom-response.md#8",
+        "doc_id": "advanced/custom-response.md"
+      }
+    ]
+  },
+  {
+    "question": "我向服务提交一段数据时，是不是必须带一个标明数据格式的头部，否则它不会被当作结构化数据来处理？",
+    "type": "换说法",
+    "expected_doc": "advanced/strict-content-type.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/header-params.md#2",
+        "doc_id": "tutorial/header-params.md"
+      },
+      {
+        "chunk_id": "tutorial/server-sent-events.md#5",
+        "doc_id": "tutorial/server-sent-events.md"
+      },
+      {
+        "chunk_id": "advanced/advanced-dependencies.md#7",
+        "doc_id": "advanced/advanced-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#12",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/sql-databases.md#6",
+        "doc_id": "tutorial/sql-databases.md"
+      }
+    ]
+  },
+  {
+    "question": "如何查看 FastAPI 应用在当前请求中使用的 `root_path`？",
+    "type": "原词",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "根据资料中的示例，应用的响应 JSON 中包含 `root_path` 字段，例如 `{\"message\": \"Hello World\", \"root_path\": \"/api/v1\"}`，可通过该字段查看当前使用的 `root_path`。[3][4]",
+    "sources": [
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#26",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#22",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#12",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#13",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#7",
+        "doc_id": "advanced/behind-a-proxy.md"
+      }
+    ]
+  },
+  {
+    "question": "怎样知道应用每次收到请求时正在使用的基础路径？",
+    "type": "换说法",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/dependencies/index.md#4",
+        "doc_id": "tutorial/dependencies/index.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#7",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#0",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#5",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#6",
+        "doc_id": "advanced/openapi-callbacks.md"
+      }
+    ]
+  },
+  {
+    "question": "如何用自定义的 Request 子类来解压 gzip 请求，并通过 APIRoute 子类使用该自定义请求类？",
+    "type": "原词",
+    "expected_doc": "how-to/custom-request-and-route.md",
+    "answer": "1. 创建 `GzipRequest` 类，重写 `Request.body()` 方法：当请求头中存在相应标记时对请求体进行解压；如果请求头中没有 `gzip`，则不会尝试解压。[1]  \n2. 这样同一个路由类即可同时处理 gzip 压缩和未压缩的请求。[1][3]  \n3. 创建 `fastapi.routing.APIRoute` 的自定义子类 `GzipRoute` 来使用 `GzipRequest`。[3]  \n4. 在 `GzipRoute` 中重写 `APIRoute.get_route_handler()` 方法；该方法返回一个负责接收请求并返回响应的函数，用它把原始请求包装为 `GzipRequest`。[3]  \n5. 创建新的 `Request` 实例需要 `request.scope` 和 `request.receive` 两样。[5]  \n6. 在传给路径操作之前，`GzipRequest` 会按需负责解压数据，之后其余处理逻辑完全相同；由于修改了 `GzipRequest.body`，FastAPI 需要读取时请求体会被自动解压。[4]",
+    "sources": [
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#1",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#0",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#2",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#4",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#3",
+        "doc_id": "how-to/custom-request-and-route.md"
+      }
+    ]
+  },
+  {
+    "question": "怎样让同一个处理接口既能处理压缩过的请求内容，也能处理没有压缩的普通内容？",
+    "type": "换说法",
+    "expected_doc": "how-to/custom-request-and-route.md",
+    "answer": "创建自定义 `GzipRequest` 类并重写 `Request.body()`：当请求头中存在相应标记时解压请求体，没有 `gzip` 标记时不尝试解压，因此同一个路由类可同时处理 gzip 压缩和未压缩请求。[4]\n\n再创建 `fastapi.routing.APIRoute` 的自定义子类来使用 `GzipRequest`，并重写 `APIRoute.get_route_handler()`，把原始请求包装为 `GzipRequest`。[1] 这样在传给路径操作之前，`GzipRequest` 会按需负责解压数据。[2] 如果只需要 Gzip 支持，也可以直接使用提供的 `GzipMiddleware`。[4]",
+    "sources": [
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#2",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#4",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "advanced/events.md#1",
+        "doc_id": "advanced/events.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#1",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#0",
+        "doc_id": "how-to/custom-request-and-route.md"
+      }
+    ]
+  },
+  {
+    "question": "在某些情况下，为什么从依赖项中提供设置可能更有用？",
+    "type": "原词",
+    "expected_doc": "advanced/settings.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#0",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#1",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      },
+      {
+        "chunk_id": "advanced/testing-dependencies.md#0",
+        "doc_id": "advanced/testing-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/index.md#10",
+        "doc_id": "tutorial/dependencies/index.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/sub-dependencies.md#2",
+        "doc_id": "tutorial/dependencies/sub-dependencies.md"
+      }
+    ]
+  },
+  {
+    "question": "如果不想在所有地方都共用同一个配置对象，有没有更灵活的做法？这种做法在验证程序时有什么方便之处？",
+    "type": "换说法",
+    "expected_doc": "advanced/settings.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/events.md#1",
+        "doc_id": "advanced/events.md"
+      },
+      {
+        "chunk_id": "async.md#14",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "advanced/settings.md#4",
+        "doc_id": "advanced/settings.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#27",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/body-updates.md#5",
+        "doc_id": "tutorial/body-updates.md"
+      }
+    ]
+  },
+  {
+    "question": "什么是时差攻击？使用 secrets.compare_digest() 可以防御它吗？",
+    "type": "原词",
+    "expected_doc": "advanced/security/http-basic-auth.md",
+    "answer": "时差攻击是攻击者通过猜测用户名与密码，利用服务器发送错误响应所花费时间的差异，判断是否猜对了部分内容（例如开头字母正确），从而逐步猜出正确的用户名和密码 [1][3]。\n\n可以防御。资料说明使用 `secrets.compare_digest()` 可以用相同时间对比字符串，从而安全地防御时差攻击这整类安全攻击 [1][2][3]。此外，`secrets.compare_digest()` 需要仅包含 ASCII 字符的 `bytes` 或 `str`，因此可先将用户名和密码转换为 UTF-8 编码的 `bytes` 再使用 [5]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#5",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#6",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#3",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/strict-content-type.md#3",
+        "doc_id": "advanced/strict-content-type.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#2",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么登录校验时，如果一发现用户名或密码不对就马上停止比较，可能让坏人更容易猜出账号和密码？",
+    "type": "换说法",
+    "expected_doc": "advanced/security/http-basic-auth.md",
+    "answer": "因为一发现字符不同就停止比较，会立刻返回错误响应 [2]。服务器发送错误用户名或密码响应所花时间的微小差异，会让攻击者判断自己“起码开头字母是正确的” [1]。攻击者据此放弃错误猜测，再用类似 `stanleyjobsox` 的内容继续尝试 [1]。专业攻击者还会编写程序每秒执行成千上万次测试，利用时间差逐步找出更多正确字符，最终猜出用户名和密码 [1]。使用 `secrets.compare_digest()` 可以用相同时间进行对比，从而防御这类时差攻击 [1][4]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#5",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#3",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#2",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#6",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#1",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      }
+    ]
+  },
+  {
+    "question": "如何通过 tags 参数为路径操作添加标签？",
+    "type": "原词",
+    "expected_doc": "tutorial/path-operation-configuration.md",
+    "answer": "通过 `tags` 参数为*路径操作*添加标签：将 `tags` 参数与*路径操作*（以及 `APIRouter`）一起使用，将其分配给不同的标签 [1]。也可以在 `APIRouter` 中添加 `tags` 列表，使其应用于该路由器中包含的所有*路径操作* [3]。此外，还可以为特定的*路径操作*添加更多 `tags`，最终形成标签组合，例如 `[\"items\", \"custom\"]` [5]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/metadata.md#6",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#5",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#9",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/path-operation-configuration.md#2",
+        "doc_id": "tutorial/path-operation-configuration.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#16",
+        "doc_id": "tutorial/bigger-applications.md"
+      }
+    ]
+  },
+  {
+    "question": "怎样给某个功能加上分类标记，让自动生成的说明里显示出来？",
+    "type": "换说法",
+    "expected_doc": "tutorial/path-operation-configuration.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#4",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#5",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "tutorial/body-updates.md#5",
+        "doc_id": "tutorial/body-updates.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#1",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "how-to/extending-openapi.md#5",
+        "doc_id": "how-to/extending-openapi.md"
+      }
+    ]
+  },
+  {
+    "question": "如果没有指定 `servers` 参数，并且 `root_path` 等于 “/”，生成的 OpenAPI 模式中 `servers` 属性会怎样？",
+    "type": "原词",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "如果没有指定 `servers` 参数，并且 `root_path` 等于 `/`，则生成的 OpenAPI 模式中会完全省略 `servers` 属性 [1][2]，这等价于只有一个 `url` 值为 `/` 的服务器 [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#25",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#24",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#22",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#11",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#6",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么直接由 Uvicorn 提供的 /docs 无法工作，而通过代理访问 /api/v1/docs 就能正常工作？",
+    "type": "原词",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "直接由 Uvicorn 提供的 `/docs` 无法工作，因为它期望通过代理访问 [1][2]。  \n通过代理访问 `/api/v1/docs` 能正常工作，是因为 FastAPI 使用 `root_path` 在 OpenAPI 中创建默认的 `server`，其 URL 来自 `root_path` [1]；代理使用路径前缀，服务器使用 `--root-path` 选项提供的 `root_path` [2]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#21",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#20",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#14",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#13",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#4",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么我直接打开本机 8000 端口的文档页面打不开，但通过中间转发服务访问带前缀的地址时却能正常显示？",
+    "type": "换说法",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/cors.md#1",
+        "doc_id": "tutorial/cors.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#16",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#11",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#8",
+        "doc_id": "tutorial/first-steps.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#0",
+        "doc_id": "tutorial/handling-errors.md"
+      }
+    ]
+  },
+  {
+    "question": "SecurityScopes 对象的 scopes 属性包含哪些作用域？",
+    "type": "原词",
+    "expected_doc": "advanced/security/oauth2-scopes.md",
+    "answer": "`SecurityScopes.scopes` 属性是一个列表，包含它自身以及所有把它作为子依赖的依赖项所需要的所有作用域 [1]。它总会包含当前 `Security` 依赖中以及所有依赖者在“该特定”路径操作和“该特定”依赖树里声明的安全作用域 [3]。因此，不同路径操作得到的 `scopes` 列表可能不同 [3][5]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#8",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#9",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#15",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#13",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#14",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      }
+    ]
+  },
+  {
+    "question": "返回 Token 的端点响应必须是什么格式？响应中应包含哪些字段，token_type 的值应该是什么？",
+    "type": "原词",
+    "expected_doc": "tutorial/security/simple-oauth2.md",
+    "answer": "返回 Token 的端点响应必须是 JSON 对象。[1]\n\n响应中应包含 `token_type` 和 `access_token` 字段；其中 `access_token` 是包含权限 Token 的字符串。[1]\n\n`token_type` 的值应为 `bearer`。[1]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/security/simple-oauth2.md#8",
+        "doc_id": "tutorial/security/simple-oauth2.md"
+      },
+      {
+        "chunk_id": "tutorial/security/simple-oauth2.md#10",
+        "doc_id": "tutorial/security/simple-oauth2.md"
+      },
+      {
+        "chunk_id": "tutorial/response-status-code.md#0",
+        "doc_id": "tutorial/response-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#2",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#14",
+        "doc_id": "tutorial/bigger-applications.md"
+      }
+    ]
+  },
+  {
+    "question": "用户登录成功后，服务端返回的数据应该是什么格式？里面要放哪些内容，其中表示类型的那一项应该写什么？",
+    "type": "换说法",
+    "expected_doc": "tutorial/security/simple-oauth2.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/security/simple-oauth2.md#1",
+        "doc_id": "tutorial/security/simple-oauth2.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-data-types.md#0",
+        "doc_id": "tutorial/extra-data-types.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#5",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "advanced/security/http-basic-auth.md#1",
+        "doc_id": "advanced/security/http-basic-auth.md"
+      },
+      {
+        "chunk_id": "tutorial/security/get-current-user.md#3",
+        "doc_id": "tutorial/security/get-current-user.md"
+      }
+    ]
+  },
+  {
+    "question": "代理移除路径前缀是什么意思？默认情况下代理会移除路径前缀吗？",
+    "type": "原词",
+    "expected_doc": "advanced/behind-a-proxy.md",
+    "answer": "代理移除路径前缀是指：代理在把请求传给应用服务器前，实时“移除”路径前缀，让你的应用认为自己是在 `/app` 被服务，而不需要修改代码去包含 `/api/v1` 前缀[2]。例如代码声明 `/app`，通过带 `/api/v1` 前缀的代理后，实际由 `/api/v1/app` 提供服务[2]。\n\n默认情况下，代理不会移除路径前缀[1]。未移除路径前缀时，代理会以相同路径访问 Uvicorn，例如 `http://127.0.0.1:8000/api/v1/app`[1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#14",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#7",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#21",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#20",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "tutorial/path-operation-configuration.md#5",
+        "doc_id": "tutorial/path-operation-configuration.md"
+      }
+    ]
+  },
+  {
+    "question": "除了 `pattern`，还可以使用什么来进行自定义校验？",
+    "type": "原词",
+    "expected_doc": "tutorial/query-params-str-validations.md",
+    "answer": "除了 `pattern`，可以使用 `AfterValidator` 进行自定义校验；在 `Annotated` 中使用 Pydantic 的 `AfterValidator`，自定义校验函数会在正常校验之后应用 [1][2]。资料还提到 Pydantic 有 `BeforeValidator` 等 [2]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#24",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#19",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#23",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#21",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "features.md#6",
+        "doc_id": "features.md"
+      }
+    ]
+  },
+  {
+    "question": "如果不想只靠固定格式匹配，还想自己写规则检查输入，文档说可以借助哪个工具？",
+    "type": "换说法",
+    "expected_doc": "tutorial/query-params-str-validations.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/body.md#1",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/path-operation-configuration.md#3",
+        "doc_id": "tutorial/path-operation-configuration.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#9",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#4",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "advanced/settings.md#7",
+        "doc_id": "advanced/settings.md"
+      }
+    ]
+  },
+  {
+    "question": "如何通过 `openapi_tags` 为用于分组路径操作的不同标签添加额外元数据？",
+    "type": "原词",
+    "expected_doc": "tutorial/metadata.md",
+    "answer": "可以通过 `openapi_tags` 参数为用于分组路径操作的不同标签添加额外元数据。[1]\n\n具体做法：\n\n1. `openapi_tags` 接收一个列表，列表中每个标签对应一个字典。[1]\n2. 每个字典可包含：\n   - `name`（**必填**）：一个 `str`，与*路径操作*和 `APIRouter` 的 `tags` 参数中使用的标签名相同。[1]\n   - `description`：一个 `str`，该标签的简短描述；可以使用 Markdown，并会显示在文档 UI 中。[1]\n   - `externalDocs`：一个 `dict`，描述外部文档，包含 `description` 和必填的 `url`。[1]\n3. 创建标签元数据并把它传递给 `openapi_tags` 参数。[2]\n4. 不必为你使用的所有标签都添加元数据。[2]\n5. 使用 `tags` 参数和*路径操作*（以及 `APIRouter`）一起使用，将其分配给不同的标签。[2]\n6. 每个标签元数据字典的顺序也定义了在文档用户界面显示的顺序。[3]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/metadata.md#5",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#6",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#7",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#5",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#8",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      }
+    ]
+  },
+  {
+    "question": "怎样给接口分类名称补充说明和外部文档链接？",
+    "type": "换说法",
+    "expected_doc": "tutorial/metadata.md",
+    "answer": "可以通过参数 `openapi_tags` 为用于分组路径操作的不同标签添加额外元数据；它接收一个列表，列表中每个标签对应一个字典。[2]\n\n- 补充说明：在标签字典中设置 `description`，该标签的简短描述，可以使用 Markdown，并会显示在文档 UI 中。[2]\n- 外部文档链接：在标签字典中设置 `externalDocs`，它是一个 `dict`，包含 `description`（简短描述）和 `url`（外部文档 URL，**必填**）。[2]\n- 标签字典中的 `name` 是**必填**项，需与路径操作和 `APIRouter` 的 `tags` 参数中使用的标签名相同。[2]",
+    "sources": [
+      {
+        "chunk_id": "advanced/generate-clients.md#5",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#5",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/request-files.md#3",
+        "doc_id": "tutorial/request-files.md"
+      },
+      {
+        "chunk_id": "python-types.md#4",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-models.md#7",
+        "doc_id": "tutorial/extra-models.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么文档建议避免使用 `Optional[SomeType]`，改用 `Union[SomeType, None]`？",
+    "type": "原词",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "answer": "文档建议避免使用 `Optional[SomeType]`，改用 `Union[SomeType, None]` [1][2]。\n\n原因是：两者是等价的，底层其实也是一样的 [1]；但“optional（可选）”这个词看起来会暗示该值是可选的，而它真正的含义是“它可以是 `None`”，即使它并不是可选的，仍然是必填的 [1]。因此，`Union[SomeType, None]` 更能明确表达其含义 [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/advanced-python-types.md#1",
+        "doc_id": "advanced/advanced-python-types.md"
+      },
+      {
+        "chunk_id": "advanced/advanced-python-types.md#0",
+        "doc_id": "advanced/advanced-python-types.md"
+      },
+      {
+        "chunk_id": "advanced/advanced-python-types.md#2",
+        "doc_id": "advanced/advanced-python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-models.md#7",
+        "doc_id": "tutorial/extra-models.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#18",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      }
+    ]
+  },
+  {
+    "question": "在类型标注里表示某个值也可能是空值时，作者为什么更推荐另一种写法，而不是名字容易让人以为可以不传参的那种？",
+    "type": "换说法",
+    "expected_doc": "advanced/advanced-python-types.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "python-types.md#3",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/body-nested-models.md#1",
+        "doc_id": "tutorial/body-nested-models.md"
+      },
+      {
+        "chunk_id": "python-types.md#6",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/body-updates.md#5",
+        "doc_id": "tutorial/body-updates.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#8",
+        "doc_id": "tutorial/body.md"
+      }
+    ]
+  },
+  {
+    "question": "当服务器已经用完 100% 的 CPU 和 RAM 时，继续硬撑可能会导致什么问题？",
+    "type": "原词",
+    "expected_doc": "deployment/concepts.md",
+    "answer": "当服务器已经用完 100% 的 CPU 和 RAM 时，继续硬撑可能导致：\n\n- 某个进程要求更多内存，服务器不得不使用磁盘作为“内存”，这可能慢数千倍，甚至崩溃 [1]。\n- 某个进程需要执行计算时，必须等到 CPU 再次空闲 [1]。",
+    "sources": [
+      {
+        "chunk_id": "deployment/concepts.md#18",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#19",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#12",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "async.md#15",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#17",
+        "doc_id": "deployment/concepts.md"
+      }
+    ]
+  },
+  {
+    "question": "如果机器已经忙到没有一点余量，还继续硬扛着会带来哪些风险？",
+    "type": "换说法",
+    "expected_doc": "deployment/concepts.md",
+    "answer": "机器在 CPU 和 RAM 已 100% 使用时还继续硬扛，主要风险包括：\n\n- 后续进程要求更多内存时，服务器会不得不用磁盘充当“内存”，这可能慢数千倍，甚至导致崩溃 [1]。\n- 进程需要执行计算时，必须等待 CPU 再次空闲 [1]。\n- 遇到 API 使用量激增时，没有额外资源来保证安全 [1]。\n- 如果每个容器运行多个进程，启动的进程数量可能消耗超过可用内存 [2]。",
+    "sources": [
+      {
+        "chunk_id": "deployment/concepts.md#18",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/docker.md#30",
+        "doc_id": "deployment/docker.md"
+      },
+      {
+        "chunk_id": "async.md#15",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#19",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "async.md#3",
+        "doc_id": "async.md"
+      }
+    ]
+  },
+  {
+    "question": "在 OpenAPI 的所有 Schema 中，为什么会有 `Item-Input` 和 `Item-Output` 两个？`description` 在它们中是否必填？",
+    "type": "原词",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "answer": "在 OpenAPI 的所有 Schema 中会看到 `Item-Input` 和 `Item-Output` 两个 Schema [2]。这是因为一个模型的 JSON Schema 会根据它用于**输入还是输出**而不同 [5]。\n\n`description` 的必填情况是：\n\n- 在 `Item-Input` 中，`description` **不是必填**，没有红色星号 [2]。\n- 在 `Item-Output` 中，`description` 是**必填**，带有红色星号 [2]；并且它可能为 `None`，在 JSON 中为 `null` [5]。",
+    "sources": [
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#6",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#4",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#12",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#16",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#3",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      }
+    ]
+  },
+  {
+    "question": "接口文档里同一个数据模型为什么会分成输入和输出两个版本？输入时说明项可以不填，输出时说明项必须填，对吗？",
+    "type": "换说法",
+    "expected_doc": "how-to/separate-openapi-schemas.md",
+    "answer": "同一个数据模型分成输入和输出两个版本，是因为输入时 `description` 字段不是必填项，默认值是 `None`，文档中没有红色星号标记必填 [2]；而输出时该字段是必填项，文档中带有红色星号 [5]。OpenAPI 中会分别出现 `Item-Input` 和 `Item-Output` 两个 Schema [5]。\n\n所以，“输入时说明项可以不填，输出时说明项必须填”在文档/Schema 标记层面是对的 [2][5]。输出时即使代码没有给该字段赋值，JSON 响应中仍会包含默认值 `null`，也就是说它总会有值，只是可能为 `None` [1]。",
+    "sources": [
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#2",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#1",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#1",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#9",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#4",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 提供的 fastapi.testclient 和 starlette.testclient 是什么关系？",
+    "type": "原词",
+    "expected_doc": "tutorial/testing.md",
+    "answer": "FastAPI 提供的 `fastapi.testclient` 和 `starlette.testclient` 是一样的，只是为了方便开发者；但它直接来自 Starlette。[1]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/testing.md#2",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "tutorial/testing.md#0",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "benchmarks.md#3",
+        "doc_id": "benchmarks.md"
+      },
+      {
+        "chunk_id": "deployment/versions.md#3",
+        "doc_id": "deployment/versions.md"
+      },
+      {
+        "chunk_id": "index.md#42",
+        "doc_id": "index.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 里的测试客户端和它底层框架提供的测试客户端是一样的吗？提供这个只是为了方便开发者吗？",
+    "type": "换说法",
+    "expected_doc": "tutorial/testing.md",
+    "answer": "是的，FastAPI 提供的 `fastapi.testclient` 和 `starlette.testclient` 一样[1]。提供它只是为了方便开发者[1]。它直接来自 Starlette[1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/testing.md#2",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "benchmarks.md#3",
+        "doc_id": "benchmarks.md"
+      },
+      {
+        "chunk_id": "deployment/index.md#1",
+        "doc_id": "deployment/index.md"
+      },
+      {
+        "chunk_id": "history-design-future.md#4",
+        "doc_id": "history-design-future.md"
+      },
+      {
+        "chunk_id": "history-design-future.md#2",
+        "doc_id": "history-design-future.md"
+      }
+    ]
+  },
+  {
+    "question": "即使用 Pydantic 模型定义 JSON Schema，并把它包含到路径操作的自定义 OpenAPI 方案中，即使请求中的数据类型不是 JSON，也可以这样做吗？",
+    "type": "原词",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "answer": "可以。资料说明，可以用 Pydantic 模型定义 JSON Schema，并把它包含到该*路径操作*的自定义 OpenAPI 方案部分中 [1]。即使请求中的数据类型不是 JSON，也可以这样做，例如将请求内容类型声明为 YAML 而不是 JSON [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#9",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#1",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#12",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#8",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#0",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      }
+    ]
+  },
+  {
+    "question": "如果接口实际收到的内容格式不是普通的结构化文本格式，我还能不能先用一个数据模型描述数据长什么样，再把它加到该接口的文档说明里？",
+    "type": "换说法",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "answer": "可以。资料说明，即使请求中的数据类型不是 JSON，也可以用一个 Pydantic 模型来定义 JSON Schema，然后把它包含到该路径操作的自定义 OpenAPI 方案部分中 [2]。例如，可以将请求的内容类型声明为 YAML，而不是 JSON [2]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#0",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "advanced/path-operation-advanced-configuration.md#9",
+        "doc_id": "advanced/path-operation-advanced-configuration.md"
+      },
+      {
+        "chunk_id": "how-to/general.md#3",
+        "doc_id": "how-to/general.md"
+      },
+      {
+        "chunk_id": "tutorial/encoder.md#1",
+        "doc_id": "tutorial/encoder.md"
+      },
+      {
+        "chunk_id": "tutorial/body-updates.md#4",
+        "doc_id": "tutorial/body-updates.md"
+      }
+    ]
+  },
+  {
+    "question": "当函数返回的类型与声明的类型不同时，应该使用哪个路径操作装饰器参数，而不是返回类型？",
+    "type": "原词",
+    "expected_doc": "tutorial/response-model.md",
+    "answer": "应使用路径操作装饰器参数 `response_model`，而不是返回类型 [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/response-model.md#2",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#0",
+        "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#0",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#2",
+        "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#0",
+        "doc_id": "tutorial/query-params.md"
+      }
+    ]
+  },
+  {
+    "question": "如果我的处理函数返回的内容和类型注解写的不一样，我该在哪里设置实际响应格式？是加在路由装饰器上，还是加在函数参数里？",
+    "type": "换说法",
+    "expected_doc": "tutorial/response-model.md",
+    "answer": "应加在**路由装饰器**上，使用路径操作装饰器的 `response_model` 参数；不是加在函数参数里。[1]\n\n当函数返回类型与声明类型不同时，可以使用 `response_model`，而不是返回类型。[1] 并且 `response_model` 是装饰器方法的参数，不是路径操作函数的参数，不像查询参数和请求体那样。[1]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/response-model.md#2",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#5",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#0",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "tutorial/response-status-code.md#0",
+        "doc_id": "tutorial/response-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#9",
+        "doc_id": "tutorial/bigger-applications.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么在 FastAPI 中使用 SQLite 时，需要允许在不同线程中使用同一个数据库？FastAPI 又是如何确保每个请求使用单独的 SQLModel 会话（session）的？",
+    "type": "原词",
+    "expected_doc": "tutorial/sql-databases.md",
+    "answer": "需要允许在不同线程中使用同一个 SQLite 数据库，是因为**单个请求**可能会使用**多个线程**（例如在依赖项中），所以要用 `check_same_thread=False` 让 FastAPI 能在不同线程中使用同一个 SQLite 数据库 [1][4]。\n\nFastAPI 通过**按照代码结构确保每个请求使用一个单独的 SQLModel 会话（session）** 来管理会话，并使用 `yield` 创建一个 FastAPI **依赖项** [1]。资料指出，这实际上就是 `check_same_thread` 想要实现的效果 [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/sql-databases.md#6",
+        "doc_id": "tutorial/sql-databases.md"
+      },
+      {
+        "chunk_id": "tutorial/sql-databases.md#0",
+        "doc_id": "tutorial/sql-databases.md"
+      },
+      {
+        "chunk_id": "tutorial/sql-databases.md#1",
+        "doc_id": "tutorial/sql-databases.md"
+      },
+      {
+        "chunk_id": "tutorial/sql-databases.md#5",
+        "doc_id": "tutorial/sql-databases.md"
+      },
+      {
+        "chunk_id": "alternatives.md#4",
+        "doc_id": "alternatives.md"
+      }
+    ]
+  },
+  {
+    "question": "当一次网页操作可能由多条执行路径共同完成时，为什么需要让它们访问同一份本地数据文件？这个框架怎样保证每次网页操作都拥有自己的数据操作上下文？",
+    "type": "换说法",
+    "expected_doc": "tutorial/sql-databases.md",
+    "answer": "因为单个请求可能会使用多个线程（例如在依赖项中），所以需要在不同线程中使用同一个 SQLite 数据库 [4]。该框架会按照代码结构确保每个请求使用一个单独的 SQLModel 会话（session），这实际上就是 `check_same_thread` 想要实现的 [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/security/get-current-user.md#4",
+        "doc_id": "tutorial/security/get-current-user.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#5",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#1",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/sql-databases.md#6",
+        "doc_id": "tutorial/sql-databases.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#4",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      }
+    ]
+  },
+  {
+    "question": "如何在路径操作装饰器中添加 dependencies 参数？",
+    "type": "原词",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "answer": "在路径操作装饰器中使用可选参数 `dependencies`，其值是由 `Depends()` 组成的 `list` [2]。这些依赖会像普通依赖项一样执行或解析，但即使有返回值，也不会传递给路径操作函数 [2]。也可以在装饰器的 `dependencies` 参数中配合 `Security` 使用 `scopes` [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/bigger-applications.md#9",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#0",
+        "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#10",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#18",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/global-dependencies.md#1",
+        "doc_id": "tutorial/dependencies/global-dependencies.md"
+      }
+    ]
+  },
+  {
+    "question": "如果有个函数我只是想让它执行，不需要它返回的结果，也不想把它写成接口函数的参数，该怎么配置？",
+    "type": "换说法",
+    "expected_doc": "tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/dependencies/index.md#1",
+        "doc_id": "tutorial/dependencies/index.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#2",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#12",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/index.md#4",
+        "doc_id": "tutorial/dependencies/index.md"
+      },
+      {
+        "chunk_id": "python-types.md#1",
+        "doc_id": "python-types.md"
+      }
+    ]
+  },
+  {
+    "question": "在 WebSocket 中抛出 HTTPException 是否合理？应该抛出什么异常？",
+    "type": "原词",
+    "expected_doc": "advanced/websockets.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/websockets.md#7",
+        "doc_id": "advanced/websockets.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#8",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#6",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#7",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#1",
+        "doc_id": "tutorial/handling-errors.md"
+      }
+    ]
+  },
+  {
+    "question": "长连接接口里出错时，用普通的网页请求异常合适吗？应该改用哪种专门的异常？还能使用标准里规定的什么关闭编号？",
+    "type": "换说法",
+    "expected_doc": "advanced/websockets.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/websockets.md#7",
+        "doc_id": "advanced/websockets.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#7",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#7",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#8",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      },
+      {
+        "chunk_id": "how-to/authentication-error-status-code.md#1",
+        "doc_id": "how-to/authentication-error-status-code.md"
+      }
+    ]
+  },
+  {
+    "question": "创建 `OAuth2PasswordBearer` 实例时，必须传入的 `tokenUrl` 参数有什么作用？",
+    "type": "原词",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "answer": "`tokenUrl` 参数用于包含客户端（运行在用户浏览器中的前端）发送 `username` 和 `password` 以获取令牌的 URL [1]。\n\n该参数不会创建对应的端点/路径操作，而是声明客户端应使用该 URL 来获取令牌；这些信息会用于 OpenAPI，进而用于交互式 API 文档系统 [2]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/security/first-steps.md#6",
+        "doc_id": "tutorial/security/first-steps.md"
+      },
+      {
+        "chunk_id": "tutorial/security/first-steps.md#7",
+        "doc_id": "tutorial/security/first-steps.md"
+      },
+      {
+        "chunk_id": "tutorial/security/simple-oauth2.md#4",
+        "doc_id": "tutorial/security/simple-oauth2.md"
+      },
+      {
+        "chunk_id": "tutorial/security/first-steps.md#8",
+        "doc_id": "tutorial/security/first-steps.md"
+      },
+      {
+        "chunk_id": "advanced/security/oauth2-scopes.md#17",
+        "doc_id": "advanced/security/oauth2-scopes.md"
+      }
+    ]
+  },
+  {
+    "question": "前端登录时，应该把账号和口令发到哪个地址来换取访问凭证？这个地址在 FastAPI 里怎么设置？",
+    "type": "换说法",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/opentelemetry.md#3",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "tutorial/security/first-steps.md#0",
+        "doc_id": "tutorial/security/first-steps.md"
+      },
+      {
+        "chunk_id": "advanced/settings.md#4",
+        "doc_id": "advanced/settings.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#21",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "index.md#20",
+        "doc_id": "index.md"
+      }
+    ]
+  }
+]
