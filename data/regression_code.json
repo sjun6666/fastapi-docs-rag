@@ -1,0 +1,80 @@
+[
+  {
+    "question": "`HTTPBasicCredentials` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "advanced/security/http-basic-auth.md",
+    "identifier": "HTTPBasicCredentials"
+  },
+  {
+    "question": "`HTTPSRedirectMiddleware` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "advanced/middleware.md",
+    "identifier": "HTTPSRedirectMiddleware"
+  },
+  {
+    "question": "`SecurityBase` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "tutorial/security/first-steps.md",
+    "identifier": "SecurityBase"
+  },
+  {
+    "question": "`openapi_tags` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "tutorial/metadata.md",
+    "identifier": "openapi_tags"
+  },
+  {
+    "question": "`FASTAPI_ENV` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "fastapi-cli.md",
+    "identifier": "FASTAPI_ENV"
+  },
+  {
+    "question": "`swagger_ui_parameters` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "how-to/configure-swagger-ui.md",
+    "identifier": "swagger_ui_parameters"
+  },
+  {
+    "question": "`app.swagger_ui_oauth2_redirect_url` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "how-to/custom-docs-ui-assets.md",
+    "identifier": "app.swagger_ui_oauth2_redirect_url"
+  },
+  {
+    "question": "`Jinja2Templates` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "advanced/templates.md",
+    "identifier": "Jinja2Templates"
+  },
+  {
+    "question": "`HTTPBearer` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "how-to/authentication-error-status-code.md",
+    "identifier": "HTTPBearer"
+  },
+  {
+    "question": "`openapi_extra` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "advanced/path-operation-advanced-configuration.md",
+    "identifier": "openapi_extra"
+  },
+  {
+    "question": "`response_model_exclude_unset` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "tutorial/response-model.md",
+    "identifier": "response_model_exclude_unset"
+  },
+  {
+    "question": "`BackgroundTasks` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "tutorial/background-tasks.md",
+    "identifier": "BackgroundTasks"
+  },
+  {
+    "question": "`default_response_class` 有什么作用？",
+    "type": "代码名",
+    "expected_doc": "advanced/custom-response.md",
+    "identifier": "default_response_class"
+  }
+]
