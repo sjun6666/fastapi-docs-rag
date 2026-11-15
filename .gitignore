@@ -12,3 +12,4 @@ data/chunk_vectors.npy
 warmup_*.py
 pratice.py
 sql_day*.py
+logs/
