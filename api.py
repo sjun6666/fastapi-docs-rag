@@ -6,6 +6,7 @@ from vector_search import get_vectors
 from sentence_transformers import SentenceTransformer
 from fastapi import HTTPException
 from rag import answer
+import requests
 import time
 import logging, os
 os.makedirs("logs", exist_ok=True)       # 目录不存在就建一个
@@ -47,7 +48,7 @@ def ask(req: AskRequest):        # FastAPI 自动把请求体解析成 AskReques
             sources.append({"chunk_id": cid, "doc_id": table[cid]})
 
 
-    except RuntimeError as e:
+    except (RuntimeError, requests.HTTPError) as e:
         logger.error(f"status=502,reason={e},q={question!r}",exc_info=True)
         raise HTTPException(status_code=502, detail="模型服务调用失败")
     logger.info(f"status=200 q={question!r},ms={ms},refuse={refuse},docs={docs}")
