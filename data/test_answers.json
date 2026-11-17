@@ -1,0 +1,1382 @@
+[
+  {
+    "question": "如何在路径操作中重用一些预定义响应，并把它们与额外的自定义响应组合在一起？",
+    "type": "原词",
+    "expected_doc": "advanced/additional-responses.md",
+    "answerable": true,
+    "source_chunk": "advanced/additional-responses.md#15",
+    "answer": "可以在*路径操作*中重用预定义响应，并把它们与额外的自定义响应组合在一起 [1]。具体做法是使用 Python 的“解包”`dict` 技巧 `**dict_to_unpack` [2][3]。当你希望有一些适用于许多*路径操作*的预定义响应，同时又想与每个*路径操作*所需的自定义响应组合时，就使用这个技巧 [3]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/additional-responses.md#15",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#14",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#13",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#6",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#5",
+        "doc_id": "advanced/openapi-callbacks.md"
+      }
+    ]
+  },
+  {
+    "question": "我想让某个接口复用已经定义好的返回结果，同时再补充一些自己定制的返回内容，该怎么做？",
+    "type": "换说法",
+    "expected_doc": "advanced/additional-responses.md",
+    "answerable": true,
+    "source_chunk": "advanced/additional-responses.md#15",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#5",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "advanced/custom-response.md#4",
+        "doc_id": "advanced/custom-response.md"
+      },
+      {
+        "chunk_id": "advanced/response-directly.md#3",
+        "doc_id": "advanced/response-directly.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#2",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#10",
+        "doc_id": "tutorial/response-model.md"
+      }
+    ]
+  },
+  {
+    "question": "怎样为 Pydantic 模型声明 examples，使其被添加到生成的 JSON Schema 并在 API 文档中使用？",
+    "type": "原词",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "answerable": true,
+    "source_chunk": "tutorial/schema-extra-example.md#0",
+    "answer": "可以为 Pydantic 模型声明 `examples`，它们会被添加到生成的 JSON Schema 中 [1]。也可以使用 `Field(examples=[\"something\"])` 或 `schema_extra`，这些示例会被添加到该 Pydantic 模型的 JSON Schema 中 [2]。这些额外信息会原样添加到该模型输出的 JSON Schema 中，并会在 API 文档中使用 [1]；该 JSON Schema 会被包含到 API 的 OpenAPI 中，然后在文档 UI 中使用 [2]。另外，可以使用 `model_config` 并设置 `\"json_schema_extra\"` [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#0",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#12",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#0",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#3",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#1",
+        "doc_id": "tutorial/response-model.md"
+      }
+    ]
+  },
+  {
+    "question": "我想让接口文档里展示的数据模型附带示例，应该怎么设置？",
+    "type": "换说法",
+    "expected_doc": "tutorial/schema-extra-example.md",
+    "answerable": true,
+    "source_chunk": "tutorial/schema-extra-example.md#0",
+    "answer": "可以为 Pydantic 模型声明 `examples`，这些示例会被添加到生成的 JSON Schema 中，并在 API 文档中使用 [1]。\n\n也可以向 `Body()` 传入 `examples`，或声明一组 `examples`，这些信息会被添加到 OpenAPI 的 JSON Schema 里，并在 `/docs` 中展示 [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#0",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "tutorial/body-updates.md#4",
+        "doc_id": "tutorial/body-updates.md"
+      },
+      {
+        "chunk_id": "tutorial/body.md#1",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/schema-extra-example.md#3",
+        "doc_id": "tutorial/schema-extra-example.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#2",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 中针对 `pydantic.v1` 的临时支持是在哪个版本添加、哪个版本移除的？",
+    "type": "原词",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "answerable": true,
+    "source_chunk": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#4",
+    "answer": "针对 `pydantic.v1` 的临时支持是在 **FastAPI 0.119.0** 中添加的 [1][3]，并在 **FastAPI 0.128.0** 中移除的 [1][3]。",
+    "sources": [
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#4",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      },
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#0",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      },
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#3",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      },
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#9",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      },
+      {
+        "chunk_id": "deployment/versions.md#4",
+        "doc_id": "deployment/versions.md"
+      }
+    ]
+  },
+  {
+    "question": "让旧式模型写法还能继续用的过渡功能，是从哪一版开始有、又在哪一版不再提供？",
+    "type": "换说法",
+    "expected_doc": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+    "answerable": true,
+    "source_chunk": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#4",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/body-updates.md#5",
+        "doc_id": "tutorial/body-updates.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#18",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#5",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      },
+      {
+        "chunk_id": "deployment/versions.md#2",
+        "doc_id": "deployment/versions.md"
+      },
+      {
+        "chunk_id": "tutorial/body-nested-models.md#4",
+        "doc_id": "tutorial/body-nested-models.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 中，为什么 users.py 和 items.py 可以通过 from .routers import items, users 这种相对导入来导入？",
+    "type": "原词",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "answerable": true,
+    "source_chunk": "tutorial/bigger-applications.md#18",
+    "answer": "因为 `app/routers/users.py` 和 `app/routers/items.py` 是同一 Python 包 `app` 一部分的子模块，所以可以使用单点 `.` 通过相对导入来导入它们 [2]。具体来说，`from .routers import items, users` 表示从 `app/main.py` 所在同一个包 `app/` 开始，寻找 `routers` 子包，再从该包中导入子模块 `items` 和 `users` [2][1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/bigger-applications.md#19",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#18",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#12",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#21",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#20",
+        "doc_id": "tutorial/bigger-applications.md"
+      }
+    ]
+  },
+  {
+    "question": "当主程序和另外两个功能文件在同一个应用目录结构里时，主程序怎样用更短的写法把旁边文件夹里的这两个功能文件引进来？开头那个点表示从哪儿开始找？",
+    "type": "换说法",
+    "expected_doc": "tutorial/bigger-applications.md",
+    "answerable": true,
+    "source_chunk": "tutorial/bigger-applications.md#18",
+    "answer": "使用更短的相对导入写法：`from .routers import items, users` [4]。\n\n开头的一个点 `.` 表示：从该模块（`app/main.py` 文件）所在的同一个包（`app/` 目录）开始查找 [4]。然后寻找 `routers` 子包，并从中导入子模块 `items`、`users` [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/frontend.md#1",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/testing.md#3",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "tutorial/testing.md#4",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#18",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "tutorial/request-forms-and-files.md#0",
+        "doc_id": "tutorial/request-forms-and-files.md"
+      }
+    ]
+  },
+  {
+    "question": "在 FastAPI 中，声明 header 参数必须使用什么？否则该参数会被解释为什么？",
+    "type": "原词",
+    "expected_doc": "tutorial/header-params.md",
+    "answerable": true,
+    "source_chunk": "tutorial/header-params.md#1",
+    "answer": "必须使用 `Header` 声明 header 参数，否则该参数会被解释为查询参数 [2]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/path-params-numeric-validations.md#1",
+        "doc_id": "tutorial/path-params-numeric-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/header-params.md#1",
+        "doc_id": "tutorial/header-params.md"
+      },
+      {
+        "chunk_id": "tutorial/header-param-models.md#0",
+        "doc_id": "tutorial/header-param-models.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#4",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "python-types.md#14",
+        "doc_id": "python-types.md"
+      }
+    ]
+  },
+  {
+    "question": "在 FastAPI 里，如果想从请求的头部取值，应该用什么来定义参数？如果不这样定义，它会被当成哪类参数？",
+    "type": "换说法",
+    "expected_doc": "tutorial/header-params.md",
+    "answerable": true,
+    "source_chunk": "tutorial/header-params.md#1",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/body.md#7",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "tutorial/body-multiple-params.md#4",
+        "doc_id": "tutorial/body-multiple-params.md"
+      },
+      {
+        "chunk_id": "python-types.md#14",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/body-multiple-params.md#3",
+        "doc_id": "tutorial/body-multiple-params.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#8",
+        "doc_id": "tutorial/response-model.md"
+      }
+    ]
+  },
+  {
+    "question": "在 FastAPI 中挂载 Flask、Django 等 WSGI 应用时，应该使用哪个中间件？需要从哪里导入它？",
+    "type": "原词",
+    "expected_doc": "advanced/wsgi.md",
+    "answerable": true,
+    "source_chunk": "advanced/wsgi.md#0",
+    "answer": "应使用 `WSGIMiddleware` 来包装 Flask、Django 等 WSGI 应用 [1]。\n\n`WSGIMiddleware` 需要从 `a2wsgi` 导入 [1]。使用前还需要将 `a2wsgi` 添加到项目中，例如使用 `uv add a2wsgi` [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/wsgi.md#0",
+        "doc_id": "advanced/wsgi.md"
+      },
+      {
+        "chunk_id": "tutorial/cors.md#7",
+        "doc_id": "tutorial/cors.md"
+      },
+      {
+        "chunk_id": "advanced/middleware.md#1",
+        "doc_id": "advanced/middleware.md"
+      },
+      {
+        "chunk_id": "tutorial/middleware.md#0",
+        "doc_id": "tutorial/middleware.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#0",
+        "doc_id": "tutorial/first-steps.md"
+      }
+    ]
+  },
+  {
+    "question": "我有一个用别的 Python Web 框架写好的旧服务，想接到 FastAPI 的某个地址下面，需要先安装什么、再导入什么，最后怎么放？",
+    "type": "换说法",
+    "expected_doc": "advanced/wsgi.md",
+    "answerable": true,
+    "source_chunk": "advanced/wsgi.md#0",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "index.md#22",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#0",
+        "doc_id": "tutorial/first-steps.md"
+      },
+      {
+        "chunk_id": "tutorial/index.md#7",
+        "doc_id": "tutorial/index.md"
+      },
+      {
+        "chunk_id": "history-design-future.md#1",
+        "doc_id": "history-design-future.md"
+      },
+      {
+        "chunk_id": "index.md#21",
+        "doc_id": "index.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 中的服务器发送事件（SSE）可以用来做什么？",
+    "type": "原词",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "answerable": true,
+    "source_chunk": "tutorial/server-sent-events.md#0",
+    "answer": "FastAPI 中的服务器发送事件（SSE）可以：\n\n- 向客户端流式发送数据 [1]。\n- 通过 HTTP 从服务器向客户端流式传输数据 [1]。\n- 使用 `text/event-stream` 格式发送，浏览器原生通过 `EventSource` API 支持 [1]。\n- 将每个被 `yield` 的项编码为 JSON，并放入 SSE 事件的 `data:` 字段发送 [3]。\n- 适用于任意 HTTP 方法，不仅仅是 `GET`，例如通过 `POST` 传输 SSE 的协议 [4]。\n- 当 15 秒内没有任何消息时，发送保活 `ping` 注释 [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/server-sent-events.md#0",
+        "doc_id": "tutorial/server-sent-events.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#6",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "tutorial/server-sent-events.md#2",
+        "doc_id": "tutorial/server-sent-events.md"
+      },
+      {
+        "chunk_id": "tutorial/server-sent-events.md#6",
+        "doc_id": "tutorial/server-sent-events.md"
+      },
+      {
+        "chunk_id": "advanced/websockets.md#4",
+        "doc_id": "advanced/websockets.md"
+      }
+    ]
+  },
+  {
+    "question": "这个框架里那种让服务端通过网络连接不断把数据分小段推给网页的功能有什么用途？",
+    "type": "换说法",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "answerable": true,
+    "source_chunk": "tutorial/server-sent-events.md#0",
+    "answer": "资料说明，这类功能用于以“流”的方式发送一系列数据（JSON Lines）[3]；它会在整段数据全部准备好之前就开始发送数据项，客户端收到第一个数据项后即可开始处理，而应用可能还在生成下一个数据项[3]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/websockets.md#8",
+        "doc_id": "advanced/websockets.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#0",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#0",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#8",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/security/first-steps.md#3",
+        "doc_id": "tutorial/security/first-steps.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么使用 TLS 终止代理时，建议用一个单独系统处理 HTTPS，而不是直接在应用服务器（例如 Uvicorn）上使用 TLS 证书？",
+    "type": "原词",
+    "expected_doc": "deployment/https.md",
+    "answerable": true,
+    "source_chunk": "deployment/https.md#13",
+    "answer": "因为证书需要更新；如果直接在应用服务器（例如 Uvicorn）上使用 TLS 证书，更新时可能需要暂时停止 TLS 终止代理，启动续订程序获取证书、配置后再重启，这期间应用将不可用 [1][2]。  \n使用单独系统处理 HTTPS，可以在仍然为应用提供服务的同时完成整个更新流程 [1][2]。",
+    "sources": [
+      {
+        "chunk_id": "deployment/https.md#13",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#12",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#3",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#11",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#10",
+        "doc_id": "deployment/https.md"
+      }
+    ]
+  },
+  {
+    "question": "为什么更推荐让一个独立服务专门负责加密访问，而不是让运行网站程序的机器自己管理加密证书？",
+    "type": "换说法",
+    "expected_doc": "deployment/https.md",
+    "answerable": true,
+    "source_chunk": "deployment/https.md#13",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "deployment/https.md#3",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#1",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#4",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#2",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "tutorial/security/index.md#4",
+        "doc_id": "tutorial/security/index.md"
+      }
+    ]
+  },
+  {
+    "question": "使用 EventSourceResponse 时，每个被 yield 的项会怎样编码并放入 SSE 事件的哪个字段？如果将返回类型声明为 AsyncIterable[Item]，FastAPI 会通过 Pydantic 做什么？",
+    "type": "原词",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "answerable": true,
+    "source_chunk": "tutorial/server-sent-events.md#2",
+    "answer": "使用 `EventSourceResponse` 时，每个被 `yield` 的项会被编码为 JSON，并放入 SSE 事件的 `data:` 字段发送 [1]。\n\n如果将返回类型声明为 `AsyncIterable[Item]`，FastAPI 会使用它通过 Pydantic 对数据进行**校验**、**文档化**和**序列化** [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/server-sent-events.md#2",
+        "doc_id": "tutorial/server-sent-events.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#10",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#5",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "advanced/stream-data.md#1",
+        "doc_id": "advanced/stream-data.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#1",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      }
+    ]
+  },
+  {
+    "question": "用 FastAPI 做持续推送消息时，我每次产出的内容会以什么形式发给客户端？如果我把返回内容的类型写清楚，框架会自动帮我做哪些处理？",
+    "type": "换说法",
+    "expected_doc": "tutorial/server-sent-events.md",
+    "answerable": true,
+    "source_chunk": "tutorial/server-sent-events.md#2",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "python-types.md#14",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/response-model.md#10",
+        "doc_id": "tutorial/response-model.md"
+      },
+      {
+        "chunk_id": "advanced/response-directly.md#5",
+        "doc_id": "advanced/response-directly.md"
+      },
+      {
+        "chunk_id": "advanced/custom-response.md#8",
+        "doc_id": "advanced/custom-response.md"
+      },
+      {
+        "chunk_id": "help-fastapi.md#2",
+        "doc_id": "help-fastapi.md"
+      }
+    ]
+  },
+  {
+    "question": "当响应内容类型是 application/jsonl 时，响应体和 JSON 数组的写法有什么不同？",
+    "type": "原词",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "answerable": true,
+    "source_chunk": "tutorial/stream-json-lines.md#2",
+    "answer": "当响应内容类型是 `application/jsonl` 时，响应体是每行一个 JSON 对象，彼此以换行符分隔 [1]。它不同于 JSON 数组：JSON 数组用 `[]` 包裹，并在各项之间使用 `,` 分隔 [1]。因此，JSON Lines 不是用 `[]` 包裹、也不是在各项之间用逗号分隔，而是逐行放置 JSON 对象 [1]。由于每个 JSON 对象以换行分隔，其内容中不能包含字面量换行符，但可以包含转义换行符（`\\n`）[1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#2",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#12",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#11",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "advanced/response-directly.md#4",
+        "doc_id": "advanced/response-directly.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#1",
+        "doc_id": "tutorial/stream-json-lines.md"
+      }
+    ]
+  },
+  {
+    "question": "服务端想边生成边发送多条数据时，返回内容为什么要一行一个对象，而不是像普通列表那样整体返回？",
+    "type": "换说法",
+    "expected_doc": "tutorial/stream-json-lines.md",
+    "answerable": true,
+    "source_chunk": "tutorial/stream-json-lines.md#2",
+    "answer": "因为流式传输是在整段数据全部准备好之前，就开始把每个数据项发送给客户端，客户端可以先接收并处理已发送的数据项，而服务端可能还在生成下一个数据项 [4]。在这种边生成边发送的场景中，常见做法是发送 JSON Lines，即每行发送一个 JSON 对象，响应内容类型为 `application/jsonl` [1]。它甚至可以是一个无限流，持续发送数据 [1]。所以一行一个对象适合逐项发送和逐项处理，而不是等整体数据全部准备好再返回 [1][4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#1",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#7",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#11",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "tutorial/stream-json-lines.md#0",
+        "doc_id": "tutorial/stream-json-lines.md"
+      },
+      {
+        "chunk_id": "async.md#4",
+        "doc_id": "async.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 的 app.frontend() 默认 fallback 是什么？如果前端目录中存在 404.html，缺失的前端路径会返回什么？",
+    "type": "原词",
+    "expected_doc": "tutorial/frontend.md",
+    "answerable": true,
+    "source_chunk": "tutorial/frontend.md#4",
+    "answer": "`app.frontend()` 默认的 `fallback` 是 `\"auto\"`。[2][3]  \n如果前端目录中存在 `404.html`，缺失的前端路径会以状态码 `404` 提供该文件。[1][3]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/frontend.md#5",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#3",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#4",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#6",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#7",
+        "doc_id": "tutorial/frontend.md"
+      }
+    ]
+  },
+  {
+    "question": "我配前端时没有专门设置缺省处理，访问不存在的页面会怎样？如果目录里有一个专门表示找不到页面的文件，会显示哪个文件、状态码是多少？",
+    "type": "换说法",
+    "expected_doc": "tutorial/frontend.md",
+    "answerable": true,
+    "source_chunk": "tutorial/frontend.md#4",
+    "answer": "未专门设置缺省处理时，缺失的浏览器导航路径若存在 `index.html`，会提供 `index.html` [1]；若目录中有专门表示找不到页面的 fallback 文件，则会以状态码 `404` 提供该文件 [1]。资料未给出该文件的具体文件名 [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/frontend.md#5",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#6",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      },
+      {
+        "chunk_id": "how-to/custom-docs-ui-assets.md#4",
+        "doc_id": "how-to/custom-docs-ui-assets.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#0",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "tutorial/handling-errors.md#3",
+        "doc_id": "tutorial/handling-errors.md"
+      }
+    ]
+  },
+  {
+    "question": "在调试面板中添加配置后，使用哪个选项可以运行 FastAPI 调试器？",
+    "type": "原词",
+    "expected_doc": "tutorial/debugging.md",
+    "answerable": true,
+    "source_chunk": "tutorial/debugging.md#3",
+    "answer": "使用选项 “`Python: Current File (Integrated Terminal)`” 运行调试器。[1]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/debugging.md#3",
+        "doc_id": "tutorial/debugging.md"
+      },
+      {
+        "chunk_id": "tutorial/debugging.md#0",
+        "doc_id": "tutorial/debugging.md"
+      },
+      {
+        "chunk_id": "fastapi-cli.md#8",
+        "doc_id": "fastapi-cli.md"
+      },
+      {
+        "chunk_id": "index.md#22",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "fastapi-cli.md#7",
+        "doc_id": "fastapi-cli.md"
+      }
+    ]
+  },
+  {
+    "question": "我想让写好的 FastAPI 服务跑起来，并在设了暂停的地方停住，应该选开发工具里的哪个选项？",
+    "type": "换说法",
+    "expected_doc": "tutorial/debugging.md",
+    "answerable": true,
+    "source_chunk": "tutorial/debugging.md#3",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "help-fastapi.md#2",
+        "doc_id": "help-fastapi.md"
+      },
+      {
+        "chunk_id": "tutorial/index.md#7",
+        "doc_id": "tutorial/index.md"
+      },
+      {
+        "chunk_id": "deployment/manually.md#0",
+        "doc_id": "deployment/manually.md"
+      },
+      {
+        "chunk_id": "index.md#22",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "history-design-future.md#4",
+        "doc_id": "history-design-future.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 中如何将文件参数设为可选？",
+    "type": "原词",
+    "expected_doc": "tutorial/request-files.md",
+    "answerable": true,
+    "source_chunk": "tutorial/request-files.md#8",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/first-steps.md#0",
+        "doc_id": "tutorial/first-steps.md"
+      },
+      {
+        "chunk_id": "index.md#22",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "python-types.md#14",
+        "doc_id": "python-types.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#4",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params-numeric-validations.md#1",
+        "doc_id": "tutorial/path-params-numeric-validations.md"
+      }
+    ]
+  },
+  {
+    "question": "如果某个文件用户可以选择不传，代码里应该怎么写？",
+    "type": "换说法",
+    "expected_doc": "tutorial/request-files.md",
+    "answerable": true,
+    "source_chunk": "tutorial/request-files.md#8",
+    "answer": "将文件参数设为可选时，可以通过使用标准类型注解，并将 `None` 作为默认值。[2]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/request-files.md#0",
+        "doc_id": "tutorial/request-files.md"
+      },
+      {
+        "chunk_id": "tutorial/request-files.md#8",
+        "doc_id": "tutorial/request-files.md"
+      },
+      {
+        "chunk_id": "tutorial/request-files.md#4",
+        "doc_id": "tutorial/request-files.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#16",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "tutorial/request-forms-and-files.md#0",
+        "doc_id": "tutorial/request-forms-and-files.md"
+      }
+    ]
+  },
+  {
+    "question": "OpenTelemetry 常见的遥测类型有哪些？",
+    "type": "原词",
+    "expected_doc": "advanced/opentelemetry.md",
+    "answerable": true,
+    "source_chunk": "advanced/opentelemetry.md#0",
+    "answer": "OpenTelemetry 常见的遥测类型包括：\n\n- **指标（Metrics）**：可按时间汇总的测量值，例如响应时间和正在处理的请求数。[1]\n- **追踪（Traces）**：记录单个请求及处理该请求所执行的操作，每个计时的操作称为一个 span。[1]\n- **日志（Logs）**：带有时间戳的事件记录，例如应用启动或操作失败。[1]",
+    "sources": [
+      {
+        "chunk_id": "advanced/opentelemetry.md#0",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#5",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#9",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#2",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "advanced/async-tests.md#0",
+        "doc_id": "advanced/async-tests.md"
+      }
+    ]
+  },
+  {
+    "question": "想了解应用运行情况时，通常可以收集哪几类数据？它们分别能说明什么？",
+    "type": "换说法",
+    "expected_doc": "advanced/opentelemetry.md",
+    "answerable": true,
+    "source_chunk": "advanced/opentelemetry.md#0",
+    "answer": "通常可以收集以下三类遥测数据 [3]：\n\n- **指标（Metrics）**：可以按时间汇总的测量值，例如响应时间和正在处理的请求数 [3]。\n- **追踪（Traces）**：记录单个请求及处理该请求所执行的操作，每个计时的操作称为一个 span [3]。\n- **日志（Logs）**：带有时间戳的事件记录，例如应用启动或操作失败 [3]。\n\n这些遥测数据反映应用行为，可用于了解接收了多少流量、哪些请求较慢以及何时发生错误 [3]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/extra-data-types.md#0",
+        "doc_id": "tutorial/extra-data-types.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params.md#5",
+        "doc_id": "tutorial/path-params.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#0",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "async.md#16",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-data-types.md#3",
+        "doc_id": "tutorial/extra-data-types.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 应用中的 `webhooks` 属性可以用来做什么？定义后的网络钩子会出现在哪里？",
+    "type": "原词",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "answerable": true,
+    "source_chunk": "advanced/openapi-webhooks.md#2",
+    "answer": "- `webhooks` 属性可以用来定义网络钩子，定义方式与定义*路径操作*相同，例如使用 `@app.webhooks.post()` [1]。\n- 可以利用 OpenAPI 自定义网络钩子的名称、应用可发送的 HTTP 操作类型（如 `POST`、`PUT` 等）以及请求体 [2]。\n- 定义后的网络钩子会被包含在 `OpenAPI` 的架构中，并出现在自动生成的文档 UI 中 [1]。\n- 启动应用并访问 `/docs` 时，文档中会显示网络钩子 [4]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#2",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#1",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#0",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#3",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "alternatives.md#4",
+        "doc_id": "alternatives.md"
+      }
+    ]
+  },
+  {
+    "question": "用这个 Python 框架时，怎样声明由外部事件触发的通知入口？声明后会自动出现在生成的接口文档界面中吗？",
+    "type": "换说法",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "answerable": true,
+    "source_chunk": "advanced/openapi-webhooks.md#2",
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/body.md#1",
+        "doc_id": "tutorial/body.md"
+      },
+      {
+        "chunk_id": "advanced/events.md#7",
+        "doc_id": "advanced/events.md"
+      },
+      {
+        "chunk_id": "index.md#30",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "advanced/wsgi.md#2",
+        "doc_id": "advanced/wsgi.md"
+      },
+      {
+        "chunk_id": "tutorial/query-param-models.md#3",
+        "doc_id": "tutorial/query-param-models.md"
+      }
+    ]
+  },
+  {
+    "question": "如何用另一个模型的内容生成 Pydantic 模型？",
+    "type": "原词",
+    "expected_doc": "tutorial/extra-models.md",
+    "answerable": true,
+    "source_chunk": "tutorial/extra-models.md#4",
+    "answer": "用另一个模型的内容生成 Pydantic 模型时：\n\n1. 先调用源模型的 `.model_dump()`，得到包含模型数据的 `dict` [3]。\n2. 在把该 `dict` 传给另一个 Pydantic 模型时，在前面加 `**` 进行解包，例如 `UserInDB(**user_in.model_dump())` [2]。\n3. 这样就可以用其它 Pydantic 模型中的数据生成 Pydantic 模型 [1][2]。\n4. 如需添加额外关键字参数，可写成 `UserInDB(**user_in.model_dump(), hashed_password=hashed_password)` [1]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/extra-models.md#5",
+        "doc_id": "tutorial/extra-models.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-models.md#4",
+        "doc_id": "tutorial/extra-models.md"
+      },
+      {
+        "chunk_id": "tutorial/extra-models.md#1",
+        "doc_id": "tutorial/extra-models.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#0",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md#8",
+        "doc_id": "how-to/migrate-from-pydantic-v1-to-pydantic-v2.md"
+      }
+    ]
+  },
+  {
+    "question": "我已经有一个填好数据的用户输入对象，想用它的字段再创建一个数据库用的用户对象，代码该怎么写？",
+    "type": "换说法",
+    "expected_doc": "tutorial/extra-models.md",
+    "answerable": true,
+    "source_chunk": "tutorial/extra-models.md#4",
+    "answer": "可以这样写 [1]：\n\n```Python\nUserInDB(**user_dict)\n```\n\n也可以逐字段显式传入 [1]：\n\n```Python\nUserInDB(\n    username=user_dict[\"username\"],\n    password=user_dict[\"password\"],\n    email=user_dict[\"email\"],\n    full_name=user_dict[\"full_name\"],\n)\n```",
+    "sources": [
+      {
+        "chunk_id": "tutorial/extra-models.md#3",
+        "doc_id": "tutorial/extra-models.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#4",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#7",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "advanced/additional-responses.md#6",
+        "doc_id": "advanced/additional-responses.md"
+      },
+      {
+        "chunk_id": "features.md#4",
+        "doc_id": "features.md"
+      }
+    ]
+  },
+  {
+    "question": "使用 FastAPI 时，如何利用 OpenAPI 文档化网络钩子？",
+    "type": "原词",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "answerable": true,
+    "source_chunk": "advanced/openapi-webhooks.md#1",
+    "answer": "使用 FastAPI 时，可以这样利用 OpenAPI 文档化网络钩子：\n\n- 利用 OpenAPI 自定义网络钩子的名称、应用可发送的 HTTP 操作类型（如 `POST`、`PUT` 等）以及请求体 [1]。\n- 创建 FastAPI 应用时，使用 `webhooks` 属性定义网络钩子，方式与定义路径操作相同，例如使用 `@app.webhooks.post()` [3]。\n- 使用网络钩子时并没有声明路径，传入的文本只是网络钩子的标识符（事件名称），例如 `@app.webhooks.post(\"new-subscription\")` 的网络钩子名称是 `new-subscription` [3][4]。\n- 定义的网络钩子会被包含在 OpenAPI 架构中，并出现在自动生成的文档 UI 中 [3]。\n- `app.webhooks` 对象实际上只是一个 `APIRouter` [3]。\n- 网络钩子在 OpenAPI 3.1.0 及以上版本中可用，FastAPI `0.99.0` 及以上版本支持 [1]。\n- 启动应用并访问 `/docs`，可以看到文档中新增的网络钩子 [4]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#1",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#0",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#2",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-webhooks.md#3",
+        "doc_id": "advanced/openapi-webhooks.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#12",
+        "doc_id": "tutorial/first-steps.md"
+      }
+    ]
+  },
+  {
+    "question": "应用主动发给外部的自动通知，怎样描述才能让对方更容易实现接收接口，甚至自动生成部分代码？",
+    "type": "换说法",
+    "expected_doc": "advanced/openapi-webhooks.md",
+    "answerable": true,
+    "source_chunk": "advanced/openapi-webhooks.md#1",
+    "answer": "可以用 **OpenAPI 回调**来描述应用主动发给外部的通知接收接口：回调*路径*可使用 OpenAPI 3 表达式，其中可包含发送到你的 API 的原始请求的部分内容，例如 `\"{$callback_url}/invoices/{$request.body.id}\"` [1]。常规 FastAPI 应用中，路径操作接收 `Invoice` 请求体，并包含带回调 URL 的查询参数 `callback_url` [2]。\n\n这样描述后，API 文档会更精确；如果有自动生成的客户端和 SDK，它们也会更精确，带来更好的开发者体验和一致性 [4]。使用自动生成的客户端还可获得方法、请求体中的数据/查询参数等、响应数据的自动补全，以及内联错误；后端更新并重新生成后，变更会反映到客户端代码，构建时数据不匹配会直接报错 [3]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#7",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "advanced/openapi-callbacks.md#1",
+        "doc_id": "advanced/openapi-callbacks.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#11",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "how-to/separate-openapi-schemas.md#5",
+        "doc_id": "how-to/separate-openapi-schemas.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#15",
+        "doc_id": "deployment/https.md"
+      }
+    ]
+  },
+  {
+    "question": "生成带标签的 TypeScript 客户端时，客户端代码通常如何按标签组织？会得到哪些服务类？",
+    "type": "原词",
+    "expected_doc": "advanced/generate-clients.md",
+    "answerable": true,
+    "source_chunk": "advanced/generate-clients.md#5",
+    "answer": "生成带标签的 TypeScript 客户端时，通常也会根据标签来拆分客户端代码，从而在客户端代码中正确组织和分组 [1]。例如会得到 `ItemsService` 和 `UsersService` [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/generate-clients.md#5",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#8",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#6",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "tutorial/metadata.md#5",
+        "doc_id": "tutorial/metadata.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#9",
+        "doc_id": "advanced/generate-clients.md"
+      }
+    ]
+  },
+  {
+    "question": "如果接口内容分成 items 和 users 两部分，前端自动生成调用代码时通常会怎么归类？会得到哪两个类？",
+    "type": "换说法",
+    "expected_doc": "advanced/generate-clients.md",
+    "answerable": true,
+    "source_chunk": "advanced/generate-clients.md#5",
+    "answer": "前端自动生成调用代码时，通常会根据标签来拆分客户端代码，并把内容正确组织和分组 [1]。会得到 `ItemsService` 和 `UsersService` 两个类 [1]。",
+    "sources": [
+      {
+        "chunk_id": "advanced/generate-clients.md#5",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#9",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#21",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#10",
+        "doc_id": "advanced/generate-clients.md"
+      },
+      {
+        "chunk_id": "advanced/generate-clients.md#8",
+        "doc_id": "advanced/generate-clients.md"
+      }
+    ]
+  },
+  {
+    "question": "在 FastAPI 中使用 transformer",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "alternatives.md#27",
+        "doc_id": "alternatives.md"
+      },
+      {
+        "chunk_id": "benchmarks.md#3",
+        "doc_id": "benchmarks.md"
+      },
+      {
+        "chunk_id": "deployment/versions.md#0",
+        "doc_id": "deployment/versions.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#0",
+        "doc_id": "tutorial/first-steps.md"
+      },
+      {
+        "chunk_id": "alternatives.md#23",
+        "doc_id": "alternatives.md"
+      }
+    ]
+  },
+  {
+    "question": "在 FastAPI 中使用 mamba",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "alternatives.md#27",
+        "doc_id": "alternatives.md"
+      },
+      {
+        "chunk_id": "index.md#44",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "benchmarks.md#3",
+        "doc_id": "benchmarks.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#6",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      },
+      {
+        "chunk_id": "alternatives.md#23",
+        "doc_id": "alternatives.md"
+      }
+    ]
+  },
+  {
+    "question": "内置限流",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "deployment/docker.md#30",
+        "doc_id": "deployment/docker.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#12",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#13",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#18",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "deployment/docker.md#31",
+        "doc_id": "deployment/docker.md"
+      }
+    ]
+  },
+  {
+    "question": "定时任务",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "async.md#4",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "index.md#24",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "async.md#0",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "async.md#3",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "async.md#15",
+        "doc_id": "async.md"
+      }
+    ]
+  },
+  {
+    "question": "接口缓存装饰器",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/path-operation-configuration.md#0",
+        "doc_id": "tutorial/path-operation-configuration.md"
+      },
+      {
+        "chunk_id": "how-to/extending-openapi.md#4",
+        "doc_id": "how-to/extending-openapi.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#2",
+        "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md#1",
+        "doc_id": "tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/dependencies-with-yield.md#19",
+        "doc_id": "tutorial/dependencies/dependencies-with-yield.md"
+      }
+    ]
+  },
+  {
+    "question": "打包成 exe",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/wsgi.md#1",
+        "doc_id": "advanced/wsgi.md"
+      },
+      {
+        "chunk_id": "tutorial/bigger-applications.md#15",
+        "doc_id": "tutorial/bigger-applications.md"
+      },
+      {
+        "chunk_id": "deployment/docker.md#12",
+        "doc_id": "deployment/docker.md"
+      },
+      {
+        "chunk_id": "deployment/docker.md#1",
+        "doc_id": "deployment/docker.md"
+      },
+      {
+        "chunk_id": "advanced/wsgi.md#0",
+        "doc_id": "advanced/wsgi.md"
+      }
+    ]
+  },
+  {
+    "question": "国际化错误提示",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "tutorial/handling-errors.md#0",
+        "doc_id": "tutorial/handling-errors.md"
+      },
+      {
+        "chunk_id": "how-to/authentication-error-status-code.md#1",
+        "doc_id": "how-to/authentication-error-status-code.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#10",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#5",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/header-param-models.md#2",
+        "doc_id": "tutorial/header-param-models.md"
+      }
+    ]
+  },
+  {
+    "question": "全局请求超时",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/opentelemetry.md#8",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "how-to/custom-request-and-route.md#5",
+        "doc_id": "how-to/custom-request-and-route.md"
+      },
+      {
+        "chunk_id": "tutorial/middleware.md#3",
+        "doc_id": "tutorial/middleware.md"
+      },
+      {
+        "chunk_id": "async.md#4",
+        "doc_id": "async.md"
+      },
+      {
+        "chunk_id": "advanced/middleware.md#3",
+        "doc_id": "advanced/middleware.md"
+      }
+    ]
+  },
+  {
+    "question": "……",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "advanced/settings.md#5",
+        "doc_id": "advanced/settings.md"
+      },
+      {
+        "chunk_id": "index.md#13",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "index.md#14",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "tutorial/testing.md#8",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "deployment/server-workers.md#10",
+        "doc_id": "deployment/server-workers.md"
+      }
+    ]
+  },
+  {
+    "question": "内置调用 DeepSeek",
+    "type": "无答案",
+    "expected_doc": null,
+    "answerable": false,
+    "source_chunk": null,
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "deployment/server-workers.md#15",
+        "doc_id": "deployment/server-workers.md"
+      },
+      {
+        "chunk_id": "fastapi-cli.md#7",
+        "doc_id": "fastapi-cli.md"
+      },
+      {
+        "chunk_id": "tutorial/debugging.md#0",
+        "doc_id": "tutorial/debugging.md"
+      },
+      {
+        "chunk_id": "how-to/configure-swagger-ui.md#2",
+        "doc_id": "how-to/configure-swagger-ui.md"
+      },
+      {
+        "chunk_id": "deployment/server-workers.md#14",
+        "doc_id": "deployment/server-workers.md"
+      }
+    ]
+  }
+]
