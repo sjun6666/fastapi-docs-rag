@@ -1,0 +1,10 @@
+[
+  {"question": "参数怎么校验", "type": "歧义", "expected_docs": ["tutorial/query-params-str-validations.md", "tutorial/path-params-numeric-validations.md", "tutorial/body-fields.md"]},
+  {"question": "接口怎么测试", "type": "歧义", "expected_docs": ["tutorial/testing.md", "advanced/async-tests.md", "advanced/testing-dependencies.md"]},
+  {"question": "怎么给 FastAPI 加中间件", "type": "歧义", "expected_docs": ["tutorial/middleware.md", "advanced/middleware.md"]},
+  {"question": "FastAPI 项目怎么部署上线", "type": "歧义", "expected_docs": ["deployment/manually.md", "deployment/docker.md", "deployment/cloud.md"]},
+  {"question": "怎么接收前端表单提交的内容", "type": "歧义", "expected_docs": ["tutorial/request-forms.md", "tutorial/request-files.md", "tutorial/request-forms-and-files.md"]},
+  {"question": "依赖项怎么写", "type": "歧义", "expected_docs": ["tutorial/dependencies/index.md", "tutorial/dependencies/classes-as-dependencies.md", "tutorial/dependencies/dependencies-with-yield.md"]},
+  {"question": "怎么给接口加登录验证", "type": "歧义", "expected_docs": ["tutorial/security/simple-oauth2.md", "tutorial/security/oauth2-jwt.md", "advanced/security/http-basic-auth.md"]},
+  {"question": "出错时怎么返回指定的状态码", "type": "歧义", "expected_docs": ["tutorial/handling-errors.md", "advanced/additional-status-codes.md", "advanced/response-change-status-code.md"]}
+]

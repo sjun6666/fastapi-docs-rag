@@ -1,0 +1,257 @@
+[
+  {
+    "question": "参数怎么校验",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/query-params-str-validations.md",
+      "tutorial/path-params-numeric-validations.md",
+      "tutorial/body-fields.md"
+    ],
+    "answer": "参数可以通过声明额外信息和校验来校验[5]。常见方式包括：\n\n- 通用校验和元数据：`alias`、`title`、`description`、`deprecated`[1]。\n- 字符串参数特有校验：`min_length`、`max_length`、`pattern`[1]。\n- 自定义校验：可在 `Annotated` 中使用 Pydantic 的 `AfterValidator`，自定义校验函数会在正常校验之后应用[1][2]。\n- 数值参数校验：使用 `Query` 和 `Path` 声明数值约束，如 `ge`、`gt`、`le`[3]。\n- 查询参数声明 Python 类型后，会转换为声明类型并进行类型校验；路径参数的解析、校验、自动文档等流程也适用于查询参数[4]。\n- 可选查询参数默认值为 `None` 时表示非必填，但仍可添加约束，例如长度不能超过 50 个字符[5]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#23",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#19",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/path-params-numeric-validations.md#5",
+        "doc_id": "tutorial/path-params-numeric-validations.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params.md#0",
+        "doc_id": "tutorial/query-params.md"
+      },
+      {
+        "chunk_id": "tutorial/query-params-str-validations.md#0",
+        "doc_id": "tutorial/query-params-str-validations.md"
+      }
+    ]
+  },
+  {
+    "question": "接口怎么测试",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/testing.md",
+      "advanced/async-tests.md",
+      "advanced/testing-dependencies.md"
+    ],
+    "answer": "根据资料，接口测试可以这样做：\n\n- 导入 `TestClient`，通过传入你的 **FastAPI** 应用创建一个 `TestClient`。[3]\n- 创建名字以 `test_` 开头的函数，这是标准的 `pytest` 约定。[3]\n- 像使用 `httpx` 那样使用 `TestClient` 对象。[3]\n- 用标准的 Python `assert` 语句检查需要验证的地方。[3]\n- 测试函数是普通的 `def`，不是 `async def`；client 的调用也是普通调用，不是用 `await`。[3]\n- 可以通过 `uv run pytest` 运行测试。[1]\n- 异步测试中，`@pytest.mark.anyio` 会告诉 pytest 该测试函数应该被异步调用。[1]",
+    "sources": [
+      {
+        "chunk_id": "advanced/async-tests.md#2",
+        "doc_id": "advanced/async-tests.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#15",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "tutorial/testing.md#1",
+        "doc_id": "tutorial/testing.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#0",
+        "doc_id": "advanced/opentelemetry.md"
+      },
+      {
+        "chunk_id": "advanced/opentelemetry.md#2",
+        "doc_id": "advanced/opentelemetry.md"
+      }
+    ]
+  },
+  {
+    "question": "怎么给 FastAPI 加中间件",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/middleware.md",
+      "advanced/middleware.md"
+    ],
+    "answer": "给 FastAPI 加中间件可以用以下方式：\n\n- 在函数顶部使用装饰器 `@app.middleware(\"http\")` 创建中间件。[1]\n- 使用 `app.add_middleware()` 添加中间件，例如 `app.add_middleware(UnicornMiddleware, some_config=\"rainbow\")`。[2][4]\n- `app.add_middleware()` 的第一个参数是中间件类，其它参数会传递给中间件。[2]\n- FastAPI 基于 Starlette、执行 ASGI 规范，因此可以使用任意 ASGI 中间件；ASGI 中间件是类，并把 ASGI 应用作为第一个参数。[3]\n- 使用 `app.add_middleware()` 的方式更简单，并且能让内部中间件在处理服务器错误的同时，让自定义异常处理器正常运作。[4]\n- 添加多个中间件时，每个新中间件都会包裹应用形成栈；最后添加的是“最外层”，请求路径上最外层先运行，响应路径上它最后运行。[5]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/middleware.md#0",
+        "doc_id": "tutorial/middleware.md"
+      },
+      {
+        "chunk_id": "advanced/middleware.md#2",
+        "doc_id": "advanced/middleware.md"
+      },
+      {
+        "chunk_id": "advanced/middleware.md#0",
+        "doc_id": "advanced/middleware.md"
+      },
+      {
+        "chunk_id": "advanced/middleware.md#1",
+        "doc_id": "advanced/middleware.md"
+      },
+      {
+        "chunk_id": "tutorial/middleware.md#4",
+        "doc_id": "tutorial/middleware.md"
+      }
+    ]
+  },
+  {
+    "question": "FastAPI 项目怎么部署上线",
+    "type": "歧义",
+    "expected_docs": [
+      "deployment/manually.md",
+      "deployment/docker.md",
+      "deployment/cloud.md"
+    ],
+    "answer": "FastAPI 项目部署上线可参考以下信息：\n\n- 部署应用程序意味着执行必要步骤，使其可供用户使用；对于 Web API，通常涉及放到远程机器并搭配性能、稳定性较好的服务器程序 [3]。\n- 可以根据使用场景和工具选择部署策略：自行部署服务器、使用云服务，或其他可能选项 [3]。\n- FastAPI 团队构建了 FastAPI Cloud，可将 FastAPI 应用部署到云端 [3]；也可以将 FastAPI 应用部署到选择的任何云服务商，并按照该云服务商的指南部署 [5]。\n- 可选使用命令 `fastapi deploy` 部署应用 [5]。\n- 部署时需关注安全性（HTTPS）、启动时运行、重新启动、复制（运行的进程数）、内存、启动前的先前步骤等概念 [4]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/first-steps.md#0",
+        "doc_id": "tutorial/first-steps.md"
+      },
+      {
+        "chunk_id": "index.md#22",
+        "doc_id": "index.md"
+      },
+      {
+        "chunk_id": "deployment/index.md#0",
+        "doc_id": "deployment/index.md"
+      },
+      {
+        "chunk_id": "deployment/concepts.md#0",
+        "doc_id": "deployment/concepts.md"
+      },
+      {
+        "chunk_id": "tutorial/first-steps.md#24",
+        "doc_id": "tutorial/first-steps.md"
+      }
+    ]
+  },
+  {
+    "question": "怎么接收前端表单提交的内容",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/request-forms.md",
+      "tutorial/request-files.md",
+      "tutorial/request-forms-and-files.md"
+    ],
+    "answer": "要接收前端表单提交的内容，可以这样处理：\n\n1. 先安装 `python-multipart`，再将依赖加入项目。[1]\n2. 从 `fastapi` 导入 `Form`。[1]\n3. 创建表单参数的方式与 `Body` 或 `Query` 相同。[1]\n4. 接收表单字段时必须显式使用 `Form`，否则这些参数会被当作查询参数或请求体（JSON）参数。[5]\n5. 如果同一个请求中还要接收文件，应同时使用 `File` 和 `Form`；可以声明多个 `File` 与 `Form` 参数，但不能同时声明要接收 JSON 的 `Body` 字段，因为此时请求体编码为 `multipart/form-data`，不是 `application/json`。[4]",
+    "sources": [
+      {
+        "chunk_id": "tutorial/request-forms.md#0",
+        "doc_id": "tutorial/request-forms.md"
+      },
+      {
+        "chunk_id": "tutorial/frontend.md#1",
+        "doc_id": "tutorial/frontend.md"
+      },
+      {
+        "chunk_id": "advanced/behind-a-proxy.md#4",
+        "doc_id": "advanced/behind-a-proxy.md"
+      },
+      {
+        "chunk_id": "tutorial/request-forms-and-files.md#1",
+        "doc_id": "tutorial/request-forms-and-files.md"
+      },
+      {
+        "chunk_id": "tutorial/request-forms.md#2",
+        "doc_id": "tutorial/request-forms.md"
+      }
+    ]
+  },
+  {
+    "question": "依赖项怎么写",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/dependencies/index.md",
+      "tutorial/dependencies/classes-as-dependencies.md",
+      "tutorial/dependencies/dependencies-with-yield.md"
+    ],
+    "answer": "依赖项可以这样写：\n\n- 可以声明为函数；但这并不是唯一方式，关键是依赖项应当是“可调用对象”[1]。\n- 也可以把依赖项写成类，例如 `CommonQueryParams`；类实例的 `__init__` 方法参数与之前的依赖项函数具有相同参数，这些参数就是 FastAPI 用来“处理”依赖项的[5]。\n- 依赖项中可以再声明子依赖项；FastAPI 支持创建含子依赖项的依赖项，并可声明任意深度的嵌套层级，由 FastAPI 负责解析[3]。\n- 写子依赖项时，可以让依赖项函数依赖另一个依赖项，例如依赖 `query_extractor`，并把它的返回值赋给参数 `q`；同时还可声明可选 cookie `last_query`[4]。\n- 使用时，在路径操作函数中声明依赖项即可；FastAPI 会先处理子依赖项，再在调用依赖项时使用其返回结果[2]。",
+    "sources": [
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#0",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/sub-dependencies.md#2",
+        "doc_id": "tutorial/dependencies/sub-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/sub-dependencies.md#0",
+        "doc_id": "tutorial/dependencies/sub-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/sub-dependencies.md#1",
+        "doc_id": "tutorial/dependencies/sub-dependencies.md"
+      },
+      {
+        "chunk_id": "tutorial/dependencies/classes-as-dependencies.md#3",
+        "doc_id": "tutorial/dependencies/classes-as-dependencies.md"
+      }
+    ]
+  },
+  {
+    "question": "怎么给接口加登录验证",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/security/simple-oauth2.md",
+      "tutorial/security/oauth2-jwt.md",
+      "advanced/security/http-basic-auth.md"
+    ],
+    "answer": "文档中没有找到相关内容",
+    "sources": [
+      {
+        "chunk_id": "deployment/https.md#8",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#11",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#7",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#10",
+        "doc_id": "deployment/https.md"
+      },
+      {
+        "chunk_id": "deployment/https.md#12",
+        "doc_id": "deployment/https.md"
+      }
+    ]
+  },
+  {
+    "question": "出错时怎么返回指定的状态码",
+    "type": "歧义",
+    "expected_docs": [
+      "tutorial/handling-errors.md",
+      "advanced/additional-status-codes.md",
+      "advanced/response-change-status-code.md"
+    ],
+    "answer": "可以通过在*路径操作函数*中声明一个 `Response` 类型的参数，并在该临时响应对象中设置 `status_code`，来返回不同于默认值的状态码。[3]\n\n也可以在 `@app.get()`、`@app.post()` 等*路径操作*装饰器中使用 `status_code` 参数声明响应的 HTTP 状态码。[4]\n\n对于认证失败：FastAPI `0.122.0` 起内置安全工具返回 `401 Unauthorized`；如果客户端依赖旧行为，可以在安全类中重写 `make_not_authenticated_error` 回退到旧的 `403 Forbidden`。[1]",
+    "sources": [
+      {
+        "chunk_id": "how-to/authentication-error-status-code.md#0",
+        "doc_id": "how-to/authentication-error-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/response-status-code.md#2",
+        "doc_id": "tutorial/response-status-code.md"
+      },
+      {
+        "chunk_id": "advanced/response-change-status-code.md#0",
+        "doc_id": "advanced/response-change-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/response-status-code.md#0",
+        "doc_id": "tutorial/response-status-code.md"
+      },
+      {
+        "chunk_id": "tutorial/response-status-code.md#5",
+        "doc_id": "tutorial/response-status-code.md"
+      }
+    ]
+  }
+]
