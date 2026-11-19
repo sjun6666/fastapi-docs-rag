@@ -38,6 +38,61 @@ RAG指先检索资料，再让模型依据检索结果生成回答。当前第�
 用户当前API预算未确定，接入前确认平台与总额上限。当前没有调用付费服务、没有模型密钥。初步目标是1–2周最小演示，再按能力和结果补接口／评估；时间为计划而非完成承诺。
 
 资料来源：https://requests.readthedocs.io/en/latest/user/quickstart/
+## 运行
+
+1. 安装依赖：`pip install -r requirements.txt`
+2. 复制 `.env.example` 为 `.env`，填入自己的 DeepSeek Key
+3. 启动： fastapi dev api.py
+4. 打开 http://127.0.0.1:8000/docs 可以在网页上测试
+
+## 调用示例
+
+请求：
+
+```json
+{"question": "怎么声明路径参数"}
+```
+
+返回：
+
+```json
+{
+  "question": "怎么声明路径参数",
+  "answer": "声明路径参数的方法：\n\n- 使用与 Python 字符串格式化相同的语法声明路径“参数”或“变量”[2]...",
+  "sources": [
+    {
+      "chunk_id": "tutorial/query-params.md#0",
+      "doc_id": "tutorial/query-params.md"
+    },
+    {
+      "chunk_id": "tutorial/path-params.md#0",
+      "doc_id": "tutorial/path-params.md"
+    },
+    {
+      "chunk_id": "tutorial/path-params-numeric-validations.md#0",
+      "doc_id": "tutorial/path-params-numeric-validations.md"
+    },
+    {
+      "chunk_id": "tutorial/query-params.md#2",
+      "doc_id": "tutorial/query-params.md"
+    },
+    {
+      "chunk_id": "advanced/using-request-directly.md#2",
+      "doc_id": "advanced/using-request-directly.md"
+    }
+  ],
+  "refused": false
+}
+```
+
+## 状态码
+
+| 状态码 | 什么情况 | 日志 |
+|---|---|---|
+| 200 |正常返回；查不到时 refused 为 true，回答是「文档中没有找到相关内容|INFO|
+| 400 |question 去掉空格后为空|WARNING|
+| 422 |请求体缺 question 字段，或者它不是字符串（Pydantic 校验）|不记录|
+| 502 |调用 DeepSeek 失败：5xx、超时重试 3 次仍失败，或者 4xx（比如 Key 无效）|ERROR|
 ## 局限
 
 1. **示例代码没有进知识库**：FastAPI的中文文档中，凡是要展示代码的地方用的都是docs_src 里对应 .py 文件的内容而不是代码本身。比如题 1 问的是怎么查看 root_path，真正的答案是 request.scope.get("root_path")，可它在代码文件里，模型拿不到，所以只答出了「响应里有这个字段」。。改进：ingest时把中文占位全部换成对应的.py文件。然后重新切块。重新向量化。重新跑开发集。
