@@ -13,3 +13,5 @@ warmup_*.py
 pratice.py
 sql_day*.py
 logs/
+tasks/
+data/trial_answers.json
