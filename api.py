@@ -1,5 +1,5 @@
 # api.py
-from fastapi import FastAPI
+from fastapi import FastAPI,Query
 from pydantic import BaseModel
 from ingest import load_data
 from vector_search import get_vectors
@@ -9,6 +9,16 @@ from rag import answer
 import requests
 import time
 import logging, os
+import sqlite3
+from history import init_db,save_record,list_records
+
+
+DB_PATH = "data/history.db"
+_conn = sqlite3.connect(DB_PATH)
+init_db(_conn)
+_conn.close()
+
+
 os.makedirs("logs", exist_ok=True)       # 目录不存在就建一个
 logging.basicConfig(
     filename="logs/app.log", level=logging.WARNING, encoding="utf-8",
@@ -16,6 +26,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger("api")
 logger.setLevel(logging.INFO)
+def record(question,answer,refused,status,error,sources):
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        save_record(conn,question,answer,refused,status,error,sources)
+    except Exception :
+        logger.error("写入问答历史失败",exc_info=True)
+    finally:
+        conn.close()
 
  # exc_info=True 会把 traceback 一起写进去
 app = FastAPI()
@@ -32,15 +50,16 @@ class AskRequest(BaseModel):     # 请求体长什么样
 def ask(req: AskRequest):        # FastAPI 自动把请求体解析成 AskRequest
     question = req.question.strip()
     docs = []
+    sources = []
     if question == "":
         logger.warning(f"status=400 , reason=问题为空 q={question!r}")
+        record(question,None,0,400,"问题为空",sources)
         raise HTTPException(status_code=400,detail="请检查输入文本")
     try:
         start = time.perf_counter()
         result =  answer(question, model, vectors, chunks)
         ms = int((time.perf_counter() - start)*1000)
         refuse=False
-        sources=[]
         if "文档中没有找到相关内容" in result["answer"]:
             refuse =True
         for cid in result["sources"]:
@@ -50,6 +69,18 @@ def ask(req: AskRequest):        # FastAPI 自动把请求体解析成 AskReques
 
     except (RuntimeError, requests.HTTPError) as e:
         logger.error(f"status=502,reason={e},q={question!r}",exc_info=True)
+        record(question, None, 0, 502, "模型服务调用失败", sources)
         raise HTTPException(status_code=502, detail="模型服务调用失败")
     logger.info(f"status=200 q={question!r},ms={ms},refuse={refuse},docs={docs}")
+    record(question, result["answer"], int(refuse), 200, None, sources)
     return {"question": question, "answer": result["answer"], "sources": sources, "refused": refuse}
+@app.get("/history")
+def history(
+        limit:int = Query(default=10,ge=1,le=100),
+        refused:bool | None = None
+):
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        return list_records(conn,limit,refused)
+    finally:
+        conn.close()

@@ -5,7 +5,7 @@ def init_db(conn):
         conn.executescript(file.read())
 
 def save_record(conn, question, answer, refused, status, error, sources):
-    created_at = datetime.now().isoformat()
+    created_at = datetime.now().isoformat(timespec="seconds")
     try:
         cursor = conn.execute("INSERT INTO qa_history (created_at, question, answer, refused, status, error) VALUES (?,?,?,?,?,?)",(created_at, question, answer, refused, status, error))
 
@@ -31,5 +31,10 @@ def list_records(conn, limit=10, refused=None):
     sql += " ORDER BY id DESC LIMIT ?"
     params.append(limit)
     rows = conn.execute(sql, params).fetchall()
-    return [dict(zip(cols,row)) for row in rows]   # 每一行都转成字典
+    records = []
+    for row in rows:
+        d = dict(zip(cols, row))
+        d["refused"] = bool(d["refused"])  # 1 → True，0 → False
+        records.append(d)
+    return records  # 每一行都转成字典
 
