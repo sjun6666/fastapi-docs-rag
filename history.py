@@ -20,3 +20,16 @@ def save_record(conn, question, answer, refused, status, error, sources):
         conn.rollback()
         raise
     return qa_id
+
+def list_records(conn, limit=10, refused=None):
+    cols = ["id", "created_at", "question", "answer", "refused", "status", "error"]
+    sql = "SELECT id, created_at, question, answer, refused, status, error FROM qa_history"
+    params = []
+    if refused is not None:
+        sql += " WHERE refused=?"                 # 拼上 WHERE 条件
+        params.append(refused)         # refused 为 True 放 1，为 False 放 0
+    sql += " ORDER BY id DESC LIMIT ?"
+    params.append(limit)
+    rows = conn.execute(sql, params).fetchall()
+    return [dict(zip(cols,row)) for row in rows]   # 每一行都转成字典
+
